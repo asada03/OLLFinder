@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
 @property (strong, nonatomic) IBOutlet UIImageView *largeImage;
 @property (strong, nonatomic) IBOutlet UILabel *largeAlgorithmLabel;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cornerButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *crossButtons;
 
 @end
 
@@ -224,12 +226,34 @@
 - (IBAction)crossAction:(UIButton *)sender
 {
     selectedCross = [NSNumber numberWithInteger:sender.tag];
+    
+    for (UIButton *button in self.crossButtons)
+    {
+        if (button.tag == sender.tag)
+            button.alpha = 1;
+        else
+            button.alpha = .4;
+    }
+    for (UIButton *button in self.cornerButtons)
+    {
+        button.alpha = 1;
+    }
+    
     [self chooseCross];
 }
 
 - (IBAction)cornerAction:(UIButton *)sender
 {
     selectedCorners = [NSNumber numberWithInteger:sender.tag];
+
+    for (UIButton *button in self.cornerButtons)
+    {
+        if (button.tag == sender.tag)
+            button.alpha = 1;
+        else
+            button.alpha = .5;
+    }
+
     [self chooseCorners];
 }
 

@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="height" constant="80" id="08H-Mj-lwN"/>
                                     <constraint firstAttribute="width" constant="80" id="ffi-TI-KfN"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="ollblank.png">
+                                <state key="normal" backgroundImage="ollcenter.png">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -226,6 +226,16 @@
                         <outlet property="casesTable" destination="bNF-Zq-05i" id="aJV-nG-vLh"/>
                         <outlet property="largeAlgorithmLabel" destination="hfv-9h-j1o" id="viZ-UM-fHw"/>
                         <outlet property="largeImage" destination="p29-E9-AUd" id="2UL-Hr-Dli"/>
+                        <outletCollection property="cornerButtons" destination="DyM-h5-R6R" id="GA3-x2-RCd"/>
+                        <outletCollection property="crossButtons" destination="RlD-dd-bf4" id="Fcv-Eh-p0Y"/>
+                        <outletCollection property="crossButtons" destination="pCe-Zr-Kko" id="64W-80-iud"/>
+                        <outletCollection property="crossButtons" destination="Isl-Yb-tHe" id="06D-dc-b1v"/>
+                        <outletCollection property="crossButtons" destination="1jL-NH-2CM" id="9WS-ZE-Rvq"/>
+                        <outletCollection property="cornerButtons" destination="F4T-Ex-Vbm" id="zkg-tH-1cU"/>
+                        <outletCollection property="cornerButtons" destination="gyt-dP-FBV" id="Qpk-yD-87n"/>
+                        <outletCollection property="cornerButtons" destination="lqT-an-7Et" id="fKV-ad-Tcc"/>
+                        <outletCollection property="cornerButtons" destination="4rb-CO-XfM" id="0of-2j-aIc"/>
+                        <outletCollection property="cornerButtons" destination="DyM-h5-R6R" id="tId-jt-0ub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -236,7 +246,6 @@
     <resources>
         <image name="oll1.png" width="204" height="204"/>
         <image name="ollarrow.png" width="174" height="174"/>
-        <image name="ollblank.png" width="174" height="174"/>
         <image name="ollcenter.png" width="174" height="174"/>
         <image name="ollcross.png" width="174" height="174"/>
         <image name="ollcrossed.png" width="174" height="174"/>
