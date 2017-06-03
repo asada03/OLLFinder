@@ -16,6 +16,7 @@
 		411E49731ED7EF3000466992 /* ollfour.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496A1ED7EF3000466992 /* ollfour.png */; };
 		411E49741ED7EF3000466992 /* ollcrossed.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496B1ED7EF3000466992 /* ollcrossed.png */; };
 		411E49751ED7EF3000466992 /* ollcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496C1ED7EF3000466992 /* ollcenter.png */; };
+		4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121C34D1EE23DAA005B5AAB /* CaseViewController.m */; };
 		41E675CC1ED7D8DE0011938B /* oll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CB1ED7D8DE0011938B /* oll1.png */; };
 		41E675E81ED7E5640011938B /* oll27.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CD1ED7E5640011938B /* oll27.png */; };
 		41E675E91ED7E5640011938B /* oll26.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CE1ED7E5640011938B /* oll26.png */; };
@@ -107,6 +108,8 @@
 		411E496A1ED7EF3000466992 /* ollfour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollfour.png; sourceTree = "<group>"; };
 		411E496B1ED7EF3000466992 /* ollcrossed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollcrossed.png; sourceTree = "<group>"; };
 		411E496C1ED7EF3000466992 /* ollcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollcenter.png; sourceTree = "<group>"; };
+		4121C34C1EE23DAA005B5AAB /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
+		4121C34D1EE23DAA005B5AAB /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
 		41E675CB1ED7D8DE0011938B /* oll1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll1.png; sourceTree = "<group>"; };
 		41E675CD1ED7E5640011938B /* oll27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll27.png; sourceTree = "<group>"; };
 		41E675CE1ED7E5640011938B /* oll26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll26.png; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				773CF28E1AA2DACB009290DF /* AppDelegate.m */,
 				773CF2901AA2DACB009290DF /* ViewController.h */,
 				773CF2911AA2DACB009290DF /* ViewController.m */,
+				4121C34C1EE23DAA005B5AAB /* CaseViewController.h */,
+				4121C34D1EE23DAA005B5AAB /* CaseViewController.m */,
 				775BE74B1AA2F6D2000E3A9D /* CaseTableViewCell.h */,
 				775BE74C1AA2F6D2000E3A9D /* CaseTableViewCell.m */,
 				773CF2931AA2DACB009290DF /* Main.storyboard */,
@@ -518,6 +523,7 @@
 				773CF28C1AA2DACB009290DF /* main.m in Sources */,
 				775BE74D1AA2F6D2000E3A9D /* CaseTableViewCell.m in Sources */,
 				773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */,
+				4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */,
 				775BE74A1AA2F399000E3A9D /* OLLCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +653,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -659,6 +666,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

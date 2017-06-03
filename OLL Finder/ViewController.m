@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "OLLCase.h"
 #import "CaseTableViewCell.h"
+#import "CaseViewController.h"
 
 
 @interface ViewController ()
@@ -16,6 +17,7 @@
     NSArray *selectedCases;
     NSNumber *selectedCross;
     NSNumber *selectedCorners;
+    OLLCase *ollCase;
 }
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
 @property (strong, nonatomic) IBOutlet UIImageView *largeImage;
@@ -34,6 +36,12 @@
     if (!self.managedObjectContext)
         [self useModelDocument];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -159,7 +167,7 @@
 {
     if ([selectedCases count] > num)
     {
-        OLLCase *ollCase = selectedCases[num];
+        ollCase = selectedCases[num];
         self.largeImage.image = [UIImage imageNamed:ollCase.file_name];
         self.largeAlgorithmLabel.text = ollCase.algorithm;
 
@@ -274,11 +282,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CaseCell"];
-    OLLCase *ollCase = selectedCases[indexPath.row];
+    OLLCase *oll = selectedCases[indexPath.row];
     
-    cell.caseImage.image = [UIImage imageNamed:ollCase.file_name];
+    cell.caseImage.image = [UIImage imageNamed:oll.file_name];
     cell.caseImage.contentMode = UIViewContentModeScaleAspectFit;
-    cell.algorithmLabel.text = ollCase.algorithm;
+    cell.algorithmLabel.text = oll.algorithm;
     cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
@@ -286,17 +294,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self setLargeImageTo:(int)indexPath.row];
+    
+    [self performSegueWithIdentifier:@"toLargeImege" sender:self];
 
 }
 
 
 
-//prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"asg"])
-//    {
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"toLargeImege"])
+    {
+        CaseViewController *caseView = segue.destinationViewController;
+        caseView.ollCase = ollCase;
+    }
+}
 
 
 @end
