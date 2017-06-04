@@ -10,6 +10,7 @@
 #import "OLLCase.h"
 #import "CaseTableViewCell.h"
 #import "CaseViewController.h"
+#import "ImageButton.h"
 
 
 @interface ViewController ()
@@ -22,8 +23,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
 @property (strong, nonatomic) IBOutlet UIImageView *largeImage;
 @property (strong, nonatomic) IBOutlet UILabel *largeAlgorithmLabel;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cornerButtons;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *crossButtons;
+@property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *crossButtons;
+@property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *cornerButtons;
+
+
 
 @end
 
@@ -35,7 +38,6 @@
     
     if (!self.managedObjectContext)
         [self useModelDocument];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,7 +86,7 @@
 
 - (void)populate
 {
-    OLLCase *ollCase;
+    OLLCase *oll;
     NSArray *ollInfo = @[@[@"oll1.png",@"(R U2 R') (R' F R F') U2 (R' F R F')",@0,@0],
                                @[@"oll2.png",@"[F (R U R' U') F' ] [f (R U R' U') f']",@0,@0],
                                @[@"oll3.png",@"[f (R U R' U') f'] U [F (R U R' U') F' ]",@0,@1],
@@ -146,13 +148,13 @@
     
     for (NSArray *ollData in ollInfo)
     {
-        ollCase = [NSEntityDescription insertNewObjectForEntityForName:@"OLLCase" inManagedObjectContext:self.managedObjectContext];
+        oll = [NSEntityDescription insertNewObjectForEntityForName:@"OLLCase" inManagedObjectContext:self.managedObjectContext];
         
-        ollCase.file_name = ollData[0];
-        ollCase.algorithm = ollData[1];
-        ollCase.cross_type = ollData[2];
-        ollCase.corners = ollData[3];
-        ollCase.rotations = [NSNumber numberWithInteger:0];
+        oll.file_name = ollData[0];
+        oll.algorithm = ollData[1];
+        oll.cross_type = ollData[2];
+        oll.corners = ollData[3];
+        oll.rotations = [NSNumber numberWithInteger:0];
     }
     
     [self start];
@@ -235,16 +237,20 @@
 {
     selectedCross = [NSNumber numberWithInteger:sender.tag];
     
-    for (UIButton *button in self.crossButtons)
+    for (ImageButton *button in self.crossButtons)
     {
         if (button.tag == sender.tag)
-            button.alpha = 1;
+        {
+            [button imageSelected];
+        }
         else
-            button.alpha = .4;
+        {
+            [button imageNotSelected];
+        }
     }
-    for (UIButton *button in self.cornerButtons)
+    for (ImageButton *button in self.cornerButtons)
     {
-        button.alpha = 1;
+        [button imageNormal];
     }
     
     [self chooseCross];
@@ -254,12 +260,16 @@
 {
     selectedCorners = [NSNumber numberWithInteger:sender.tag];
 
-    for (UIButton *button in self.cornerButtons)
+    for (ImageButton *button in self.cornerButtons)
     {
         if (button.tag == sender.tag)
-            button.alpha = 1;
+        {
+            [button imageSelected];
+        }
         else
-            button.alpha = .5;
+        {
+            [button imageNotSelected];
+        }
     }
 
     [self chooseCorners];

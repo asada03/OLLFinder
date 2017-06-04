@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,7 +29,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlD-dd-bf4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlD-dd-bf4" customClass="ImageButton">
                                 <rect key="frame" x="33" y="20" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="XPd-dZ-Mhf"/>
@@ -42,7 +42,7 @@
                                     <action selector="crossAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PUi-Ly-kV4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4T-Ex-Vbm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4T-Ex-Vbm" customClass="ImageButton">
                                 <rect key="frame" x="16" y="139" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="08H-Mj-lwN"/>
@@ -55,7 +55,7 @@
                                     <action selector="cornerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xD6-X6-eoo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-dP-FBV">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-dP-FBV" customClass="ImageButton">
                                 <rect key="frame" x="104" y="139" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="eML-4F-jIx"/>
@@ -68,7 +68,7 @@
                                     <action selector="cornerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OFA-E2-QYf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rb-CO-XfM">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rb-CO-XfM" customClass="ImageButton">
                                 <rect key="frame" x="280" y="139" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="c41-NU-PuE"/>
@@ -81,7 +81,7 @@
                                     <action selector="cornerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n6h-Jp-R8K"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyM-h5-R6R">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyM-h5-R6R" customClass="ImageButton">
                                 <rect key="frame" x="368" y="139" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="wRq-f9-oxc"/>
@@ -94,7 +94,7 @@
                                     <action selector="cornerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T0Y-zK-DK5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCe-Zr-Kko">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCe-Zr-Kko" customClass="ImageButton">
                                 <rect key="frame" x="139" y="20" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Lxn-ur-tOx"/>
@@ -107,7 +107,7 @@
                                     <action selector="crossAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jFU-nl-bte"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isl-Yb-tHe">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isl-Yb-tHe" customClass="ImageButton">
                                 <rect key="frame" x="245" y="20" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="QVu-qI-2Jj"/>
@@ -120,7 +120,7 @@
                                     <action selector="crossAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fr3-EE-D6C"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-NH-2CM">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-NH-2CM" customClass="ImageButton">
                                 <rect key="frame" x="350" y="20" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="FFh-Md-m1e"/>
@@ -133,7 +133,7 @@
                                     <action selector="crossAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lMz-96-ZTi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqT-an-7Et">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqT-an-7Et" customClass="ImageButton">
                                 <rect key="frame" x="192" y="139" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="TtK-Ww-3Yc"/>
@@ -154,7 +154,7 @@
                                         <rect key="frame" x="0.0" y="22" width="304" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z0p-qv-VNN" id="5ko-pn-5s0">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oll1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-uN-p2V">
@@ -236,6 +236,16 @@
                         <outletCollection property="cornerButtons" destination="lqT-an-7Et" id="fKV-ad-Tcc"/>
                         <outletCollection property="cornerButtons" destination="4rb-CO-XfM" id="0of-2j-aIc"/>
                         <outletCollection property="cornerButtons" destination="DyM-h5-R6R" id="tId-jt-0ub"/>
+                        <outletCollection property="sfddfg" destination="RlD-dd-bf4" id="3uK-WK-LZh"/>
+                        <outletCollection property="crossButtons" destination="RlD-dd-bf4" id="YtN-mb-fJq"/>
+                        <outletCollection property="crossButtons" destination="pCe-Zr-Kko" id="b8E-jv-uyJ"/>
+                        <outletCollection property="crossButtons" destination="Isl-Yb-tHe" id="NrH-2R-Zkm"/>
+                        <outletCollection property="crossButtons" destination="1jL-NH-2CM" id="zqc-R8-wth"/>
+                        <outletCollection property="cornerButtons" destination="F4T-Ex-Vbm" id="tbe-oh-WUX"/>
+                        <outletCollection property="cornerButtons" destination="gyt-dP-FBV" id="cGN-CI-nwT"/>
+                        <outletCollection property="cornerButtons" destination="lqT-an-7Et" id="kAf-E1-5yW"/>
+                        <outletCollection property="cornerButtons" destination="4rb-CO-XfM" id="eWh-CX-GHv"/>
+                        <outletCollection property="cornerButtons" destination="DyM-h5-R6R" id="LrA-xX-M27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

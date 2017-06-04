@@ -44,7 +44,6 @@
 		41E675FF1ED7E5640011938B /* oll5.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675E41ED7E5640011938B /* oll5.png */; };
 		41E676001ED7E5640011938B /* oll4.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675E51ED7E5640011938B /* oll4.png */; };
 		41E676011ED7E5640011938B /* oll3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675E61ED7E5640011938B /* oll3.png */; };
-		41E676021ED7E5640011938B /* oll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675E71ED7E5640011938B /* oll1.png */; };
 		41E676211ED7EB230011938B /* oll57.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E676031ED7EB230011938B /* oll57.png */; };
 		41E676221ED7EB230011938B /* oll56.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E676041ED7EB230011938B /* oll56.png */; };
 		41E676231ED7EB230011938B /* oll55.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E676051ED7EB230011938B /* oll55.png */; };
@@ -76,6 +75,7 @@
 		41E6763D1ED7EB230011938B /* oll29.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E6761F1ED7EB230011938B /* oll29.png */; };
 		41E6763E1ED7EB230011938B /* oll28.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E676201ED7EB230011938B /* oll28.png */; };
 		41EE46DD1AA372CA002AC26D /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41EE46DC1AA372CA002AC26D /* iphone.storyboard */; };
+		7731C4711EE44CA500A5147D /* ImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7731C4701EE44CA500A5147D /* ImageButton.m */; };
 		773CF28C1AA2DACB009290DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF28B1AA2DACB009290DF /* main.m */; };
 		773CF28F1AA2DACB009290DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF28E1AA2DACB009290DF /* AppDelegate.m */; };
 		773CF2921AA2DACB009290DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF2911AA2DACB009290DF /* ViewController.m */; };
@@ -169,6 +169,8 @@
 		41E6761F1ED7EB230011938B /* oll29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll29.png; sourceTree = "<group>"; };
 		41E676201ED7EB230011938B /* oll28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll28.png; sourceTree = "<group>"; };
 		41EE46DC1AA372CA002AC26D /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iphone.storyboard; path = ../iphone.storyboard; sourceTree = "<group>"; };
+		7731C46F1EE44CA500A5147D /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageButton.h; sourceTree = "<group>"; };
+		7731C4701EE44CA500A5147D /* ImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageButton.m; sourceTree = "<group>"; };
 		773CF2861AA2DACB009290DF /* OLL Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OLL Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		773CF28A1AA2DACB009290DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		773CF28B1AA2DACB009290DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -233,6 +235,8 @@
 				773CF28E1AA2DACB009290DF /* AppDelegate.m */,
 				773CF2901AA2DACB009290DF /* ViewController.h */,
 				773CF2911AA2DACB009290DF /* ViewController.m */,
+				7731C46F1EE44CA500A5147D /* ImageButton.h */,
+				7731C4701EE44CA500A5147D /* ImageButton.m */,
 				4121C34C1EE23DAA005B5AAB /* CaseViewController.h */,
 				4121C34D1EE23DAA005B5AAB /* CaseViewController.m */,
 				775BE74B1AA2F6D2000E3A9D /* CaseTableViewCell.h */,
@@ -393,7 +397,7 @@
 		773CF27E1AA2DACB009290DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Andres Sada Govela";
 				TargetAttributes = {
 					773CF2851AA2DACB009290DF = {
@@ -479,7 +483,6 @@
 				773CF29A1AA2DACB009290DF /* LaunchScreen.xib in Resources */,
 				41E6763A1ED7EB230011938B /* oll32.png in Resources */,
 				41E675F81ED7E5640011938B /* oll11.png in Resources */,
-				41E676021ED7E5640011938B /* oll1.png in Resources */,
 				411E49751ED7EF3000466992 /* ollcenter.png in Resources */,
 				41E675FD1ED7E5640011938B /* oll7.png in Resources */,
 				41E676371ED7EB230011938B /* oll35.png in Resources */,
@@ -525,6 +528,7 @@
 				773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */,
 				4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */,
 				775BE74A1AA2F399000E3A9D /* OLLCase.m in Sources */,
+				7731C4711EE44CA500A5147D /* ImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,15 +583,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -621,8 +629,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -630,6 +640,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -650,8 +661,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "OLL Finder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -663,8 +675,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "OLL Finder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -684,6 +697,7 @@
 				);
 				INFOPLIST_FILE = "OLL FinderTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OLL Finder.app/OLL Finder";
 			};
@@ -699,6 +713,7 @@
 				);
 				INFOPLIST_FILE = "OLL FinderTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OLL Finder.app/OLL Finder";
 			};

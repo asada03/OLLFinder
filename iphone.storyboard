@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ntW-mK-Txf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ntW-mK-Txf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -39,8 +39,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfq-Ze-cd4">
-                                <rect key="frame" x="39.5" y="0.0" width="49" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfq-Ze-cd4" customClass="ImageButton">
+                                <rect key="frame" x="39.5" y="11" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="Vcb-Hk-DZf"/>
                                     <constraint firstAttribute="height" constant="49" id="jqy-GE-jGu"/>
@@ -52,8 +52,8 @@
                                     <action selector="crossAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="kCx-iy-zva"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6y-H2-Ejx">
-                                <rect key="frame" x="29" y="68" width="49" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6y-H2-Ejx" customClass="ImageButton">
+                                <rect key="frame" x="29" y="75" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="V7c-1u-HZM"/>
                                     <constraint firstAttribute="height" constant="49" id="WMK-dI-c7S"/>
@@ -65,8 +65,8 @@
                                     <action selector="cornerAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="e0v-OE-QHX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jm-cx-8Do">
-                                <rect key="frame" x="82" y="68" width="49" height="49"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jm-cx-8Do" customClass="ImageButton">
+                                <rect key="frame" x="82" y="75" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="L1e-ku-Vbi"/>
                                     <constraint firstAttribute="height" constant="49" id="y8A-l7-Ezf"/>
@@ -78,8 +78,8 @@
                                     <action selector="cornerAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="IBw-1A-yxd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7x-3Z-gLf">
-                                <rect key="frame" x="189" y="68" width="49" height="49"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7x-3Z-gLf" customClass="ImageButton">
+                                <rect key="frame" x="189" y="75" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="gPy-cf-oRX"/>
                                     <constraint firstAttribute="width" constant="49" id="vEP-gA-DnG"/>
@@ -91,8 +91,8 @@
                                     <action selector="cornerAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="rCN-Nm-MmZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-X8-F7u">
-                                <rect key="frame" x="242" y="68" width="49" height="49"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-X8-F7u" customClass="ImageButton">
+                                <rect key="frame" x="242" y="75" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="c5Q-JM-kGV"/>
                                     <constraint firstAttribute="height" constant="49" id="dQO-yn-Slg"/>
@@ -104,8 +104,8 @@
                                     <action selector="cornerAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="nHL-ur-N3R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt5-b5-psS">
-                                <rect key="frame" x="103.5" y="0.0" width="49" height="49"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt5-b5-psS" customClass="ImageButton">
+                                <rect key="frame" x="103.5" y="11" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="Suh-Bn-WXR"/>
                                     <constraint firstAttribute="height" constant="49" id="ZH3-Ia-Ogt"/>
@@ -117,8 +117,8 @@
                                     <action selector="crossAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="1e4-OM-YiQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xa-P2-avV">
-                                <rect key="frame" x="167.5" y="0.0" width="49" height="49"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xa-P2-avV" customClass="ImageButton">
+                                <rect key="frame" x="167.5" y="11" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="0Gr-Ha-RLf"/>
                                     <constraint firstAttribute="height" constant="49" id="Hnb-cB-7Bs"/>
@@ -130,8 +130,8 @@
                                     <action selector="crossAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="OsR-rC-145"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvE-x6-Gnk">
-                                <rect key="frame" x="231.5" y="0.0" width="49" height="49"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvE-x6-Gnk" customClass="ImageButton">
+                                <rect key="frame" x="231.5" y="11" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="gh7-Dx-8jG"/>
                                     <constraint firstAttribute="width" constant="49" id="odM-18-awx"/>
@@ -143,8 +143,8 @@
                                     <action selector="crossAction:" destination="Z7B-jD-Fi8" eventType="touchUpInside" id="rIo-8w-4F4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-ga-dSt">
-                                <rect key="frame" x="135.5" y="68" width="49" height="49"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ica-ga-dSt" customClass="ImageButton">
+                                <rect key="frame" x="135.5" y="75" width="49" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="99Q-zt-lcM"/>
                                     <constraint firstAttribute="width" constant="49" id="sKh-yX-u3w"/>
@@ -157,7 +157,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-hC-fcM">
-                                <rect key="frame" x="0.0" y="133" width="320" height="371"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="365"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="CaseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CaseCell" rowHeight="68" id="VjK-yi-nRU" customClass="CaseTableViewCell">
@@ -195,26 +195,26 @@
                         <color key="backgroundColor" red="0.0" green="0.44810267857142855" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5xa-P2-avV" secondAttribute="centerX" multiplier="5:3" id="2eo-fr-JL8"/>
-                            <constraint firstItem="jDp-hC-fcM" firstAttribute="top" secondItem="Ica-ga-dSt" secondAttribute="bottom" constant="16" id="3Bp-lr-nX1"/>
-                            <constraint firstItem="e7x-3Z-gLf" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="68" id="52Q-UQ-gHR"/>
+                            <constraint firstItem="jDp-hC-fcM" firstAttribute="top" secondItem="Ica-ga-dSt" secondAttribute="bottom" constant="15" id="3Bp-lr-nX1"/>
+                            <constraint firstItem="e7x-3Z-gLf" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="75" id="52Q-UQ-gHR"/>
                             <constraint firstAttribute="trailing" secondItem="e7x-3Z-gLf" secondAttribute="centerX" multiplier="6:4" id="Ag5-6o-mWO"/>
                             <constraint firstAttribute="trailing" secondItem="Vt5-b5-psS" secondAttribute="centerX" multiplier="5:2" id="G06-qZ-Lzd"/>
-                            <constraint firstItem="Ica-ga-dSt" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="68" id="I0o-ib-ks8"/>
-                            <constraint firstItem="jvE-x6-Gnk" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="M9v-cc-y4X"/>
+                            <constraint firstItem="Ica-ga-dSt" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="75" id="I0o-ib-ks8"/>
+                            <constraint firstItem="jvE-x6-Gnk" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="11" id="M9v-cc-y4X"/>
                             <constraint firstAttribute="trailing" secondItem="gfq-Ze-cd4" secondAttribute="centerX" multiplier="5:1" id="OD9-cC-LaR"/>
-                            <constraint firstItem="5xa-P2-avV" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="PW1-ZV-ZGI"/>
-                            <constraint firstItem="8Jm-cx-8Do" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="68" id="TLw-RQ-RKE"/>
+                            <constraint firstItem="5xa-P2-avV" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="11" id="PW1-ZV-ZGI"/>
+                            <constraint firstItem="8Jm-cx-8Do" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="75" id="TLw-RQ-RKE"/>
                             <constraint firstAttribute="trailing" secondItem="jDp-hC-fcM" secondAttribute="trailing" id="U1W-Bw-BEV"/>
-                            <constraint firstItem="gfq-Ze-cd4" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="Wlr-tf-X2E"/>
+                            <constraint firstItem="gfq-Ze-cd4" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="11" id="Wlr-tf-X2E"/>
                             <constraint firstAttribute="trailing" secondItem="jvE-x6-Gnk" secondAttribute="centerX" multiplier="5:4" id="XZX-xS-yKF"/>
                             <constraint firstItem="8my-xI-YwV" firstAttribute="top" secondItem="jDp-hC-fcM" secondAttribute="bottom" id="ZDo-bK-9gc"/>
                             <constraint firstAttribute="trailing" secondItem="Ica-ga-dSt" secondAttribute="centerX" multiplier="6:3" id="acx-AI-cnz"/>
-                            <constraint firstItem="lrx-X8-F7u" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="68" id="f5Z-45-NcJ"/>
+                            <constraint firstItem="lrx-X8-F7u" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="75" id="f5Z-45-NcJ"/>
                             <constraint firstAttribute="trailing" secondItem="8Jm-cx-8Do" secondAttribute="centerX" multiplier="6:2" id="h5Y-jt-AgC"/>
-                            <constraint firstItem="V6y-H2-Ejx" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="68" id="mlK-D4-G5H"/>
-                            <constraint firstItem="Vt5-b5-psS" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="mxb-8K-M45"/>
+                            <constraint firstItem="V6y-H2-Ejx" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="75" id="mlK-D4-G5H"/>
+                            <constraint firstItem="Vt5-b5-psS" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" constant="11" id="mxb-8K-M45"/>
                             <constraint firstItem="jDp-hC-fcM" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="ndh-gd-8ZA"/>
-                            <constraint firstAttribute="trailing" secondItem="V6y-H2-Ejx" secondAttribute="centerX" multiplier="6:1" id="vUx-1v-a0i"/>
+                            <constraint firstAttribute="trailing" secondItem="V6y-H2-Ejx" secondAttribute="centerX" multiplier="6:1" constant="-1" id="vUx-1v-a0i"/>
                             <constraint firstAttribute="trailing" secondItem="lrx-X8-F7u" secondAttribute="centerX" multiplier="6:5" id="wtI-sB-X5E"/>
                         </constraints>
                     </view>
@@ -231,12 +231,21 @@
                         <outletCollection property="cornerButtons" destination="8Jm-cx-8Do" id="MQZ-op-6Uu"/>
                         <outletCollection property="cornerButtons" destination="Ica-ga-dSt" id="sPO-Bb-NNn"/>
                         <outletCollection property="cornerButtons" destination="e7x-3Z-gLf" id="1o7-AM-0fy"/>
+                        <outletCollection property="crossButtons" destination="gfq-Ze-cd4" id="rH6-Ev-hwc"/>
+                        <outletCollection property="crossButtons" destination="Vt5-b5-psS" id="yQT-lN-h5A"/>
+                        <outletCollection property="crossButtons" destination="5xa-P2-avV" id="F3M-CA-Pwq"/>
+                        <outletCollection property="crossButtons" destination="jvE-x6-Gnk" id="b05-mL-SaE"/>
+                        <outletCollection property="cornerButtons" destination="V6y-H2-Ejx" id="ojh-hP-6eq"/>
+                        <outletCollection property="cornerButtons" destination="8Jm-cx-8Do" id="Oh0-VU-5zl"/>
+                        <outletCollection property="cornerButtons" destination="Ica-ga-dSt" id="bOT-2b-p3l"/>
+                        <outletCollection property="cornerButtons" destination="e7x-3Z-gLf" id="J29-Xj-t4n"/>
+                        <outletCollection property="cornerButtons" destination="lrx-X8-F7u" id="nD8-4F-e4g"/>
                         <segue destination="g6A-K5-0Yh" kind="show" identifier="toLargeImege" id="f5S-tT-sXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FeT-6J-CZR" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="533.45070422535207"/>
+            <point key="canvasLocation" x="180" y="532.3943661971831"/>
         </scene>
         <!--Case View Controller-->
         <scene sceneID="Gvz-YZ-rn0">
