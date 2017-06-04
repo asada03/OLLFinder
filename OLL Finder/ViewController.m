@@ -172,6 +172,7 @@
         ollCase = selectedCases[num];
         self.largeImage.image = [UIImage imageNamed:ollCase.file_name];
         self.largeAlgorithmLabel.text = ollCase.algorithm;
+        self.largeAlgorithmLabel.adjustsFontSizeToFitWidth = YES;
 
     }
 }

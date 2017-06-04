@@ -22,7 +22,7 @@
     
     self.caseImageView.image = [UIImage imageNamed:self.ollCase.file_name];
     self.algLabel.text = self.ollCase.algorithm;
-
+    self.algLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated

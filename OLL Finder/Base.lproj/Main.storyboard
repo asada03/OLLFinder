@@ -154,7 +154,7 @@
                                         <rect key="frame" x="0.0" y="22" width="304" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z0p-qv-VNN" id="5ko-pn-5s0">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oll1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-uN-p2V">
@@ -165,7 +165,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1v-dC-XCW">
-                                                    <rect key="frame" x="76" y="23.5" width="220" height="21"/>
+                                                    <rect key="frame" x="76" y="23.5" width="476" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
