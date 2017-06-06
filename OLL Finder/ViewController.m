@@ -19,6 +19,8 @@
     NSNumber *selectedCross;
     NSNumber *selectedCorners;
     OLLCase *ollCase;
+    BOOL isIpad;
+    BOOL viewAppeared;
 }
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
 @property (strong, nonatomic) IBOutlet UIImageView *largeImage;
@@ -38,12 +40,27 @@
     
     if (!self.managedObjectContext)
         [self useModelDocument];
+    
+    isIpad = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad );
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (!viewAppeared)
+    {
+        for (ImageButton *button in self.cornerButtons)
+            [button imageDisabled];
+        
+        viewAppeared = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -306,7 +323,8 @@
 {
     [self setLargeImageTo:(int)indexPath.row];
     
-    [self performSegueWithIdentifier:@"toLargeImege" sender:self];
+    if (!isIpad)
+        [self performSegueWithIdentifier:@"toLargeImege" sender:self];
 
 }
 

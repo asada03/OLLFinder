@@ -13,4 +13,6 @@
 -(void) imageSelected;
 -(void) imageNotSelected;
 -(void) imageNormal;
+-(void) imageDisabled;
+
 @end

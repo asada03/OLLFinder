@@ -38,18 +38,26 @@
 -(void) imageNotSelected
 {
     CGFloat offset = self.originalFrame.size.width * .1;
-    self.alpha = .7;
+    self.alpha = .75;
     
     self.frame = CGRectMake( self.originalFrame.origin.x + (offset / 2), self.originalFrame.origin.y + (offset / 2), self.originalFrame.size.width - offset, self.originalFrame.size.height - offset);
-    
+ 
+    self.enabled = YES;
 }
 
 -(void) imageNormal
 {
     self.alpha = 1;
     self.frame = self.originalFrame;
+    
+    self.enabled = YES;
 }
 
+-(void) imageDisabled
+{
+    [self imageNotSelected];
+    self.enabled = NO;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
