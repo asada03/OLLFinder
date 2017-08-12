@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageButton : UIButton
+    
+@property (nonatomic, strong) NSString *type;
 
 -(void) imageSelected;
 -(void) imageNotSelected;
 -(void) imageNormal;
 -(void) imageDisabled;
+-(void) imageHidden;
 
 @end

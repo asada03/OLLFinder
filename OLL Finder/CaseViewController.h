@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OLLCase.h"
+#import "OLLCase+CoreDataProperties.h"
 
 @interface CaseViewController : UIViewController
 @property (weak, nonatomic) OLLCase *ollCase;

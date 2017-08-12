@@ -11,5 +11,6 @@
 @interface CaseTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *caseImage;
 @property (strong, nonatomic) IBOutlet UILabel *algorithmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *algNumLabel;
 
 @end

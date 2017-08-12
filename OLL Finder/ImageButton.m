@@ -16,6 +16,15 @@
 
 @implementation ImageButton
 
+-(void)setType:(NSString *)type
+    {
+        _type = type;
+        
+        self.hidden = NO;
+        [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", type]] forState:UIControlStateNormal];
+        
+    }
+    
 -(CGRect)originalFrame
 {
     if (!originalFrameSet)
@@ -51,12 +60,19 @@
     self.frame = self.originalFrame;
     
     self.enabled = YES;
+    self.hidden = NO;
 }
 
 -(void) imageDisabled
 {
     [self imageNotSelected];
     self.enabled = NO;
+}
+    
+-(void) imageHidden
+{
+    [self imageNotSelected];
+    self.hidden = YES;
 }
 
 /*
