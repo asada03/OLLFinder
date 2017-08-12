@@ -56,6 +56,7 @@
 
 -(void) imageNormal
 {
+    NSLog(@"%d", (int)self.tag);
     self.alpha = 1;
     self.frame = self.originalFrame;
     
