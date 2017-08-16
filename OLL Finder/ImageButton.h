@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageButton : UIButton
-    
+
+@property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *widthConstraint;
 @property (nonatomic, strong) NSString *type;
 
 -(void) imageSelected;

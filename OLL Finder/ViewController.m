@@ -61,12 +61,16 @@
     
     if (!viewAppeared)
     {
+        for (ImageButton *button in self.crossButtons)
+            [button imageNormal];
+
         for (ImageButton *button in self.cornerButtons)
             [button imageDisabled];
         
         viewAppeared = YES;
+
+        self.buttonsViewHeight.constant = 72;
     }
-    self.buttonsViewHeight.constant = 72;
 }
 
 - (void)didReceiveMemoryWarning {

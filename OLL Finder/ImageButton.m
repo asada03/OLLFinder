@@ -9,56 +9,80 @@
 #import "ImageButton.h"
 @interface ImageButton ()
 {
-    BOOL originalFrameSet;
+    CGFloat originalHeight;
+    CGFloat originalWidth;
 }
-@property (nonatomic) CGRect originalFrame;
 @end
 
 @implementation ImageButton
-
+    
 -(void)setType:(NSString *)type
+{
+    _type = type;
+    
+    self.hidden = NO;
+    [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", type]] forState:UIControlStateNormal];
+    
+}
+    
+-(NSLayoutConstraint *)heightConstraint
+{
+    if (!_heightConstraint)
     {
-        _type = type;
-        
-        self.hidden = NO;
-        [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", type]] forState:UIControlStateNormal];
-        
+        for (NSLayoutConstraint *constraint in self.constraints) {
+            if ([constraint.identifier isEqualToString:@"height"]) {
+                _heightConstraint = constraint;
+                originalHeight = _heightConstraint.constant;
+                //_heightConstraint.constant = 5;
+                break;
+            }
+        }
     }
     
--(CGRect)originalFrame
-{
-    if (!originalFrameSet)
-    {
-        _originalFrame = self.frame;
-        originalFrameSet = YES;
-    }
-    return _originalFrame;
+    return _heightConstraint;
 }
-
+    
+-(NSLayoutConstraint *)widthConstraint
+{
+    if (!_widthConstraint)
+    {
+        for (NSLayoutConstraint *constraint in self.constraints) {
+            if ([constraint.identifier isEqualToString:@"width"]) {
+                _widthConstraint = constraint;
+                originalWidth = _widthConstraint.constant;
+                break;
+            }
+        }
+    }
+    return _widthConstraint;
+}
+    
 -(void) imageSelected
 {
-    CGFloat offset = self.originalFrame.size.width * .1;
+    CGFloat offset = originalWidth * .1;
     self.alpha = 1;
     
-    self.frame = CGRectMake( self.originalFrame.origin.x - (offset / 2), self.originalFrame.origin.y - (offset / 2), self.originalFrame.size.width + offset, self.originalFrame.size.height + offset);
-
+    self.heightConstraint.constant = originalHeight + offset;
+    self.widthConstraint.constant = originalWidth + offset;
 }
 
 -(void) imageNotSelected
 {
-    CGFloat offset = self.originalFrame.size.width * .1;
-    self.alpha = .75;
+    CGFloat offset = originalWidth * .1;
+    self.alpha = .65;
     
-    self.frame = CGRectMake( self.originalFrame.origin.x + (offset / 2), self.originalFrame.origin.y + (offset / 2), self.originalFrame.size.width - offset, self.originalFrame.size.height - offset);
+    self.heightConstraint.constant = originalHeight - offset;
+    self.widthConstraint.constant = originalWidth - offset;
  
     self.enabled = YES;
 }
 
 -(void) imageNormal
 {
-    NSLog(@"%d", (int)self.tag);
+    NSLog(@"normal %d w:%f h:%f", (int)self.tag, originalWidth, originalHeight);
     self.alpha = 1;
-    self.frame = self.originalFrame;
+    self.heightConstraint.constant = originalHeight;
+    self.widthConstraint.constant = originalWidth;
     
     self.enabled = YES;
     self.hidden = NO;
@@ -72,7 +96,7 @@
     
 -(void) imageHidden
 {
-    [self imageNotSelected];
+    [self imageNormal];
     self.hidden = YES;
 }
 
