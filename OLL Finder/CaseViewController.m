@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.caseImageView.image = [UIImage imageNamed:self.ollCase.file_name];
+    self.caseImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.file_name]];
     self.algLabel.text = self.ollCase.algorithm;
     self.algLabel.adjustsFontSizeToFitWidth = YES;
 }
