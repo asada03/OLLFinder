@@ -47,6 +47,19 @@
         [self useModelDocument];
     
     isIpad = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad );
+    
+    if (isIpad)
+    {
+        self.buttonsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.buttonsView.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        self.buttonsView.layer.shadowOpacity = .7f;
+        self.buttonsView.layer.shadowRadius = 4.0f;
+        
+        self.casesTable.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.casesTable.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        self.casesTable.layer.shadowOpacity = .7f;
+        self.casesTable.layer.shadowRadius = 4.0f;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
