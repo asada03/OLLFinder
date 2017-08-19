@@ -11,10 +11,12 @@
 #import "CaseTableViewCell.h"
 #import "CaseViewController.h"
 #import "ImageButton.h"
+#import "UICKeyChainStore.h"
 
 
 @interface ViewController ()
 {
+    NSString *version;
     NSArray *selectedCases;
     NSMutableArray *caseTypes;
     NSNumber *selectedCross;
@@ -43,6 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    version = @"1.1";
     if (!self.managedObjectContext)
         [self useModelDocument];
     
@@ -97,6 +100,15 @@
     url = [url URLByAppendingPathComponent:@"Cases Data"];
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
+    if (![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
+        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
+    {
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:[url path] error:&error];
+        NSLog(@"Deleting");
+    }
+
+    
     if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]])
     {
         [document saveToURL:url
@@ -122,6 +134,8 @@
         self.managedObjectContext = document.managedObjectContext;
         [self start];
     }
+    
+    [UICKeyChainStore setString:version forKey:@"version"];
 }
 
 - (void)populate

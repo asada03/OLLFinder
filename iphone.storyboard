@@ -67,7 +67,7 @@
                                                         <constraint firstAttribute="width" constant="52" id="rta-YH-EDh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-OT-bH2">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-OT-bH2">
                                                     <rect key="frame" x="10" y="22" width="49" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,6 +78,7 @@
                                                 <constraint firstItem="Dex-OT-bH2" firstAttribute="centerX" secondItem="kbg-32-kJb" secondAttribute="centerX" id="8wv-Xt-x6K"/>
                                                 <constraint firstItem="Ufv-fH-KYt" firstAttribute="trailing" secondItem="ApF-hE-dSf" secondAttribute="trailingMargin" id="I1a-i4-jh6"/>
                                                 <constraint firstItem="Ufv-fH-KYt" firstAttribute="leading" secondItem="kbg-32-kJb" secondAttribute="trailing" constant="8" id="NVL-xZ-wKe"/>
+                                                <constraint firstItem="Dex-OT-bH2" firstAttribute="centerY" secondItem="kbg-32-kJb" secondAttribute="centerY" id="f70-eF-MOG"/>
                                                 <constraint firstItem="Ufv-fH-KYt" firstAttribute="centerY" secondItem="kbg-32-kJb" secondAttribute="centerY" id="pb8-4Y-Erk"/>
                                                 <constraint firstItem="kbg-32-kJb" firstAttribute="leading" secondItem="ApF-hE-dSf" secondAttribute="leadingMargin" id="tf6-jE-0iR"/>
                                                 <constraint firstItem="kbg-32-kJb" firstAttribute="top" secondItem="ApF-hE-dSf" secondAttribute="topMargin" id="ybZ-po-CL2"/>
