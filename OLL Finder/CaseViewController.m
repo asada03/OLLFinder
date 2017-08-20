@@ -20,8 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.caseImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.file_name]];
-    self.algLabel.text = self.ollCase.algorithm;
+    self.caseImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.uid]];
+    self.algLabel.text = self.ollCase.main.algorithm;
     self.algLabel.adjustsFontSizeToFitWidth = YES;
 }
 
@@ -29,9 +29,10 @@
 {
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
+
+    CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, .5 * M_PI * [self.ollCase.main.rotations integerValue]);
+    self.caseImageView.transform = transform;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

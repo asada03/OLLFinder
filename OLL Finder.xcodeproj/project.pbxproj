@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4119F19A1F3E8431002F6BF4 /* OLLCase+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119F1971F3E8431002F6BF4 /* OLLCase+CoreDataClass.m */; };
-		4119F19B1F3E8431002F6BF4 /* OLLCase+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119F1991F3E8431002F6BF4 /* OLLCase+CoreDataProperties.m */; };
 		4119F1A51F3F5C40002F6BF4 /* ollF.png in Resources */ = {isa = PBXBuildFile; fileRef = 4119F19C1F3F5C40002F6BF4 /* ollF.png */; };
 		4119F1A61F3F5C40002F6BF4 /* ollQ.png in Resources */ = {isa = PBXBuildFile; fileRef = 4119F19D1F3F5C40002F6BF4 /* ollQ.png */; };
 		4119F1A71F3F5C40002F6BF4 /* ollP.png in Resources */ = {isa = PBXBuildFile; fileRef = 4119F19E1F3F5C40002F6BF4 /* ollP.png */; };
@@ -29,6 +27,18 @@
 		411E49741ED7EF3000466992 /* ollcrossed.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496B1ED7EF3000466992 /* ollcrossed.png */; };
 		411E49751ED7EF3000466992 /* ollcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496C1ED7EF3000466992 /* ollcenter.png */; };
 		4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121C34D1EE23DAA005B5AAB /* CaseViewController.m */; };
+		41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160A1F49C639005F71F4 /* FirebaseCore.framework */; };
+		41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */; };
+		41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */; };
+		41C816121F49C649005F71F4 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C816111F49C649005F71F4 /* FirebaseDatabase.framework */; };
+		41C816141F49C689005F71F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41C816131F49C689005F71F4 /* GoogleService-Info.plist */; };
+		41C816161F49C7AB005F71F4 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C816151F49C7AB005F71F4 /* FirebaseAnalytics.framework */; };
+		41C816231F49EF97005F71F4 /* Video+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816181F49EF97005F71F4 /* Video+CoreDataClass.m */; };
+		41C816241F49EF97005F71F4 /* Video+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8161A1F49EF97005F71F4 /* Video+CoreDataProperties.m */; };
+		41C816251F49EF97005F71F4 /* OLLCase+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8161C1F49EF97005F71F4 /* OLLCase+CoreDataClass.m */; };
+		41C816261F49EF97005F71F4 /* OLLCase+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8161E1F49EF97005F71F4 /* OLLCase+CoreDataProperties.m */; };
+		41C816271F49EF97005F71F4 /* Algorithm+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816201F49EF97005F71F4 /* Algorithm+CoreDataClass.m */; };
+		41C816281F49EF97005F71F4 /* Algorithm+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */; };
 		41E675CC1ED7D8DE0011938B /* oll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CB1ED7D8DE0011938B /* oll1.png */; };
 		41E675E81ED7E5640011938B /* oll27.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CD1ED7E5640011938B /* oll27.png */; };
 		41E675E91ED7E5640011938B /* oll26.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CE1ED7E5640011938B /* oll26.png */; };
@@ -110,10 +120,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4119F1961F3E8431002F6BF4 /* OLLCase+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OLLCase+CoreDataClass.h"; path = "../OLLCase+CoreDataClass.h"; sourceTree = "<group>"; };
-		4119F1971F3E8431002F6BF4 /* OLLCase+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OLLCase+CoreDataClass.m"; path = "../OLLCase+CoreDataClass.m"; sourceTree = "<group>"; };
-		4119F1981F3E8431002F6BF4 /* OLLCase+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OLLCase+CoreDataProperties.h"; path = "../OLLCase+CoreDataProperties.h"; sourceTree = "<group>"; };
-		4119F1991F3E8431002F6BF4 /* OLLCase+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OLLCase+CoreDataProperties.m"; path = "../OLLCase+CoreDataProperties.m"; sourceTree = "<group>"; };
 		4119F19C1F3F5C40002F6BF4 /* ollF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollF.png; sourceTree = "<group>"; };
 		4119F19D1F3F5C40002F6BF4 /* ollQ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollQ.png; sourceTree = "<group>"; };
 		4119F19E1F3F5C40002F6BF4 /* ollP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollP.png; sourceTree = "<group>"; };
@@ -136,6 +142,25 @@
 		411E496C1ED7EF3000466992 /* ollcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollcenter.png; sourceTree = "<group>"; };
 		4121C34C1EE23DAA005B5AAB /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
 		4121C34D1EE23DAA005B5AAB /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
+		41C816081F49C19E005F71F4 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		41C8160A1F49C639005F71F4 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		41C816111F49C649005F71F4 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		41C816131F49C689005F71F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41C816151F49C7AB005F71F4 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		41C816171F49EF97005F71F4 /* Video+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+CoreDataClass.h"; sourceTree = "<group>"; };
+		41C816181F49EF97005F71F4 /* Video+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+CoreDataClass.m"; sourceTree = "<group>"; };
+		41C816191F49EF97005F71F4 /* Video+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Video+CoreDataProperties.h"; sourceTree = "<group>"; };
+		41C8161A1F49EF97005F71F4 /* Video+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Video+CoreDataProperties.m"; sourceTree = "<group>"; };
+		41C8161B1F49EF97005F71F4 /* OLLCase+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OLLCase+CoreDataClass.h"; sourceTree = "<group>"; };
+		41C8161C1F49EF97005F71F4 /* OLLCase+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OLLCase+CoreDataClass.m"; sourceTree = "<group>"; };
+		41C8161D1F49EF97005F71F4 /* OLLCase+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OLLCase+CoreDataProperties.h"; sourceTree = "<group>"; };
+		41C8161E1F49EF97005F71F4 /* OLLCase+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OLLCase+CoreDataProperties.m"; sourceTree = "<group>"; };
+		41C8161F1F49EF97005F71F4 /* Algorithm+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Algorithm+CoreDataClass.h"; sourceTree = "<group>"; };
+		41C816201F49EF97005F71F4 /* Algorithm+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Algorithm+CoreDataClass.m"; sourceTree = "<group>"; };
+		41C816211F49EF97005F71F4 /* Algorithm+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Algorithm+CoreDataProperties.h"; sourceTree = "<group>"; };
+		41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Algorithm+CoreDataProperties.m"; sourceTree = "<group>"; };
 		41E675CB1ED7D8DE0011938B /* oll1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll1.png; sourceTree = "<group>"; };
 		41E675CD1ED7E5640011938B /* oll27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll27.png; sourceTree = "<group>"; };
 		41E675CE1ED7E5640011938B /* oll26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll26.png; sourceTree = "<group>"; };
@@ -220,6 +245,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */,
+				41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */,
+				41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */,
+				41C816121F49C649005F71F4 /* FirebaseDatabase.framework in Frameworks */,
+				41C816161F49C7AB005F71F4 /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +263,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41C815FD1F49BD51005F71F4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				41C816151F49C7AB005F71F4 /* FirebaseAnalytics.framework */,
+				41C816111F49C649005F71F4 /* FirebaseDatabase.framework */,
+				41C8160A1F49C639005F71F4 /* FirebaseCore.framework */,
+				41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */,
+				41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		773CF27D1AA2DACB009290DF = {
 			isa = PBXGroup;
 			children = (
+				41C815FD1F49BD51005F71F4 /* Firebase */,
 				773CF2881AA2DACB009290DF /* OLL Finder */,
 				773CF2A21AA2DACB009290DF /* OLL FinderTests */,
 				773CF2871AA2DACB009290DF /* Products */,
@@ -269,6 +312,8 @@
 				4119F1AF1F47B6BC002F6BF4 /* UICKeyChainStore.m */,
 				773CF2931AA2DACB009290DF /* Main.storyboard */,
 				41EE46DC1AA372CA002AC26D /* iphone.storyboard */,
+				41C816081F49C19E005F71F4 /* Firebase.h */,
+				41C816131F49C689005F71F4 /* GoogleService-Info.plist */,
 				773CF2961AA2DACB009290DF /* Images.xcassets */,
 				773CF2981AA2DACB009290DF /* LaunchScreen.xib */,
 				773CF2891AA2DACB009290DF /* Supporting Files */,
@@ -381,11 +426,19 @@
 		773CF3311AA2EE22009290DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				41C816171F49EF97005F71F4 /* Video+CoreDataClass.h */,
+				41C816181F49EF97005F71F4 /* Video+CoreDataClass.m */,
+				41C816191F49EF97005F71F4 /* Video+CoreDataProperties.h */,
+				41C8161A1F49EF97005F71F4 /* Video+CoreDataProperties.m */,
+				41C8161B1F49EF97005F71F4 /* OLLCase+CoreDataClass.h */,
+				41C8161C1F49EF97005F71F4 /* OLLCase+CoreDataClass.m */,
+				41C8161D1F49EF97005F71F4 /* OLLCase+CoreDataProperties.h */,
+				41C8161E1F49EF97005F71F4 /* OLLCase+CoreDataProperties.m */,
+				41C8161F1F49EF97005F71F4 /* Algorithm+CoreDataClass.h */,
+				41C816201F49EF97005F71F4 /* Algorithm+CoreDataClass.m */,
+				41C816211F49EF97005F71F4 /* Algorithm+CoreDataProperties.h */,
+				41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */,
 				773CF3321AA2EE3D009290DF /* Model.xcdatamodeld */,
-				4119F1961F3E8431002F6BF4 /* OLLCase+CoreDataClass.h */,
-				4119F1971F3E8431002F6BF4 /* OLLCase+CoreDataClass.m */,
-				4119F1981F3E8431002F6BF4 /* OLLCase+CoreDataProperties.h */,
-				4119F1991F3E8431002F6BF4 /* OLLCase+CoreDataProperties.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -529,6 +582,7 @@
 				4119F1A71F3F5C40002F6BF4 /* ollP.png in Resources */,
 				41E675F81ED7E5640011938B /* oll11.png in Resources */,
 				411E49751ED7EF3000466992 /* ollcenter.png in Resources */,
+				41C816141F49C689005F71F4 /* GoogleService-Info.plist in Resources */,
 				41E675FD1ED7E5640011938B /* oll7.png in Resources */,
 				41E676371ED7EB230011938B /* oll35.png in Resources */,
 				41E676241ED7EB230011938B /* oll54.png in Resources */,
@@ -569,13 +623,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				773CF2921AA2DACB009290DF /* ViewController.m in Sources */,
-				4119F19A1F3E8431002F6BF4 /* OLLCase+CoreDataClass.m in Sources */,
+				41C816281F49EF97005F71F4 /* Algorithm+CoreDataProperties.m in Sources */,
 				773CF28F1AA2DACB009290DF /* AppDelegate.m in Sources */,
 				4119F1B01F47B6BC002F6BF4 /* UICKeyChainStore.m in Sources */,
 				773CF28C1AA2DACB009290DF /* main.m in Sources */,
+				41C816251F49EF97005F71F4 /* OLLCase+CoreDataClass.m in Sources */,
+				41C816271F49EF97005F71F4 /* Algorithm+CoreDataClass.m in Sources */,
+				41C816231F49EF97005F71F4 /* Video+CoreDataClass.m in Sources */,
+				41C816241F49EF97005F71F4 /* Video+CoreDataProperties.m in Sources */,
 				775BE74D1AA2F6D2000E3A9D /* CaseTableViewCell.m in Sources */,
-				4119F19B1F3E8431002F6BF4 /* OLLCase+CoreDataProperties.m in Sources */,
 				773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */,
+				41C816261F49EF97005F71F4 /* OLLCase+CoreDataProperties.m in Sources */,
 				4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */,
 				7731C4711EE44CA500A5147D /* ImageButton.m in Sources */,
 			);
@@ -659,7 +717,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +758,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -710,9 +772,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = YCE3342473;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OLL Finder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -725,9 +792,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = YCE3342473;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "OLL Finder/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

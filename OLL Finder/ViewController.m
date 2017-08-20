@@ -8,14 +8,18 @@
 
 #import "ViewController.h"
 #import "OLLCase+CoreDataProperties.h"
+#import "Algorithm+CoreDataProperties.h"
+#import "Video+CoreDataProperties.h"
 #import "CaseTableViewCell.h"
 #import "CaseViewController.h"
 #import "ImageButton.h"
 #import "UICKeyChainStore.h"
-
+#import "Firebase.h"
 
 @interface ViewController ()
 {
+    FIRDatabaseReference *firebaseRootRef;
+
     NSString *version;
     NSArray *selectedCases;
     NSMutableArray *caseTypes;
@@ -75,6 +79,8 @@
 {
     [super viewDidAppear:animated];
     
+    firebaseRootRef = [[FIRDatabase database] reference];
+
     if (!viewAppeared)
     {
         for (ImageButton *button in self.crossButtons)
@@ -140,77 +146,170 @@
 
 - (void)populate
 {
-    OLLCase *oll;
-    NSArray *ollInfo = @[@[@"1",@"(R U2 R') (R' F R F') U2 (R' F R F')",@0,@0,@""],
-                               @[@"2",@"[F (R U R' U') F' ] [f (R U R' U') f']",@0,@0,@""],
-                               @[@"3",@"[f (R U R' U') f'] U [F (R U R' U') F' ]",@0,@1,@""],
-                               @[@"4",@"[f (R U R' U') f'] U' [F (R U R' U') F' ]",@0,@1,@""],
-                               @[@"5",@"(R U R' U) (R' F R F') U2 (R' F R F')",@0,@3,@""],
-                               @[@"6",@"[F (R U R' U) F'] y' U2 (R' F R F')",@0,@2,@""],
-                               @[@"7",@"M U (R U R' U') M' (R' F R F') ",@0,@2,@""],
-                               @[@"8",@"M U (R U R' U') M2 (U R U' r')",@0,@4,@""],
-                               @[@"9",@"R' U2 R2 U R' U R U2 x' U' R' U",@1,@0,@""],
-                               @[@"10",@"F (R U R' U') R F' (r U R' U') r'",@1,@0,@""],
-                               @[@"11",@"f (R U R' U') (R U R' U') f'",@1,@0,@""],
-                               @[@"12",@"(R U R' U) R d' R U' R' F'",@1,@0,@""],
-                               @[@"13",@"(r U R' U) (R U' R' U) R U2' r'",@2,@0,@""],
-                               @[@"14",@"l' U' L U' L' U L U' L' U2 l",@2,@0,@""],
-                               @[@"15",@"(R' F R' F') R2 U2 y (R' F R F')",@2,@0,@""],
-                               @[@"16",@"R' F R2 B' R2' F' R2 B R'",@2,@0,@""],
-                               @[@"17",@"F (R U R' U') (R U R' U') F'",@2,@0,@""],
-                               @[@"18",@"F' (L' U' L U) (L' U' L U) F",@2,@0,@""],
-                               @[@"19",@"(r U R' U) R U2 r'",@2,@1,@"S"],
-                               @[@"20",@"r' U' R U' R' U2 r",@2,@1,@"S"],
-                               @[@"21",@"[F (R U R' U') F'] U [F (R U R' U') F' ]",@2,@1,@"S"],
-                               @[@"22",@"[F' (L' U' L U) F] y [F (R U R' U') F']",@2,@1,@"S"],
-                               @[@"23",@"(R U R' U') R' F R2 U R' U' F'",@2,@1,@"F"],
-                               @[@"24",@"(R U R' U) (R' F R F') R U2 R'",@2,@1,@"F"],
-                               @[@"25",@"r' U2 (R U R' U) r",@2,@1,@"O"],
-                               @[@"26",@"r U2 R' U' R U' r'",@2,@1,@"O"],
-                               @[@"27",@"F U R U' R2 F' R (U R U' R')",@1,@1,@""],
-                               @[@"28",@"R' F R U R' F' R y' (R U' R')",@1,@1,@""],
-                               @[@"29",@"(r U r') (R U R' U') (r U' r')",@1,@1,@""],
-                               @[@"30",@"(l' U' l) (L' U' L U) (l' U l)",@1,@1,@""],
-                               @[@"31",@"[(R U R' U) R U2 R'] [F (R U R' U') F']",@2,@2,@"Y"],
-                               @[@"32",@"(R' F R F') (R' F R F') (R U R' U') (R U R')",@2,@2,@"Y"],
-                               @[@"33",@"(R2 U R' B' R) U' (R2 U R B R')",@2,@2,@"Y"],
-                               @[@"34",@"(R U R' U') R U' R' F' U' F (R U R')",@2,@2,@"Y"],
-                               @[@"35",@"R U B' U' R' U R B R'",@2,@2,@"P"],
-                               @[@"36",@"R' U' F U R U' R' F' R",@2,@2,@"P"],
-                               @[@"37",@"F R U' R' U' R U R' F'",@2,@3,@"Q"],
-                               @[@"38",@"f (R U R' U') f'",@2,@2,@"P"],
-                               @[@"39",@"f ' (L' U' L U) f",@2,@2,@"P"],
-                               @[@"40",@"(R U2 R') (R' F R F') (R U2 R')",@2,@03,@"Q"],
-                               @[@"41",@"F (R U R' U') F'",@01,@2,@"T"],
-                               @[@"42",@"(R U R' U') (R' F R F')",@1,@2,@"T"],
-                               @[@"43",@"R B' R' U' R U B U' R' ",@1,@03,@""],
-                               @[@"44",@"R' [F (R U R' U') F'] U R",@1,@3,@""],
-                               @[@"45",@"(R U R2 U') (R' F) (R U) (R U') F'",@1,@2,@"C"],
-                               @[@"46",@"R' U' (R' F R F') U R",@1,@2,@"C"],
-                               @[@"47",@"(R U R' U) (R U' R' U') (R' F R F')",@2,@3,@"M"],
-                               @[@"48",@"(L' U' L U') (L' U L U) (L F' L' F)",@2,@3,@"M"],
-                               @[@"49",@"F (R U R' U') (R U R' U') (R U R' U') F'",@3,@0,@""],
-                               @[@"50",@"[f (R U R' U') f'] [F (R U R' U') F']",@3,@0,@""],
-                               @[@"51",@"R2 [D (R' U2) R] [D' (R' U2) R']",@3,@2,@""],
-                               @[@"52",@"(r U R' U') (r' F R F')",@3,@2,@""],
-                               @[@"53",@"F' (r U R' U') (r' F R )",@3,@3,@""],
-                               @[@"54",@"R U2 R' U' R U' R'",@3,@1,@""],
-                               @[@"55",@"(R U R' U) R U2 R'",@3,@1,@""],
-                               @[@"56",@"M' U M U2 M' U M",@2,@4,@""],
-                               @[@"57",@"(R U R' U') M' (U R U' r')",@1,@4,@""]];
+    NSArray *ollCases = @[@[@"1",@0,@0,@""],
+                               @[@"2",@0,@0,@""],
+                               @[@"3",@0,@1,@""],
+                               @[@"4",@0,@1,@""],
+                               @[@"5",@0,@3,@""],
+                               @[@"6",@0,@2,@""],
+                               @[@"7",@0,@2,@""],
+                               @[@"8",@0,@4,@""],
+                               @[@"9",@1,@0,@""],
+                               @[@"10",@1,@0,@""],
+                               @[@"11",@1,@0,@""],
+                               @[@"12",@1,@0,@""],
+                               @[@"13",@2,@0,@""],
+                               @[@"14",@2,@0,@""],
+                               @[@"15",@2,@0,@""],
+                               @[@"16",@2,@0,@""],
+                               @[@"17",@2,@0,@""],
+                               @[@"18",@2,@0,@""],
+                               @[@"19",@2,@1,@"S"],
+                               @[@"20",@2,@1,@"S"],
+                               @[@"21",@2,@1,@"S"],
+                               @[@"22",@2,@1,@"S"],
+                               @[@"23",@2,@1,@"F"],
+                               @[@"24",@2,@1,@"F"],
+                               @[@"25",@2,@1,@"O"],
+                               @[@"26",@2,@1,@"O"],
+                               @[@"27",@1,@1,@""],
+                               @[@"28",@1,@1,@""],
+                               @[@"29",@1,@1,@""],
+                               @[@"30",@1,@1,@""],
+                               @[@"31",@2,@2,@"Y"],
+                               @[@"32",@2,@2,@"Y"],
+                               @[@"33",@2,@2,@"Y"],
+                               @[@"34",@2,@2,@"Y"],
+                               @[@"35",@2,@2,@"P"],
+                               @[@"36",@2,@2,@"P"],
+                               @[@"37",@2,@3,@"Q"],
+                               @[@"38",@2,@2,@"P"],
+                               @[@"39",@2,@2,@"P"],
+                               @[@"40",@2,@3,@"Q"],
+                               @[@"41",@1,@2,@"T"],
+                               @[@"42",@1,@2,@"T"],
+                               @[@"43",@1,@3,@""],
+                               @[@"44",@1,@3,@""],
+                               @[@"45",@1,@2,@"C"],
+                               @[@"46",@1,@2,@"C"],
+                               @[@"47",@2,@3,@"M"],
+                               @[@"48",@2,@3,@"M"],
+                               @[@"49",@3,@0,@""],
+                               @[@"50",@3,@0,@""],
+                               @[@"51",@3,@2,@""],
+                               @[@"52",@3,@2,@""],
+                               @[@"53",@3,@3,@""],
+                               @[@"54",@3,@1,@""],
+                               @[@"55",@3,@1,@""],
+                               @[@"56",@2,@4,@""],
+                               @[@"57",@1,@4,@""]];
 
+ NSArray *ollAlgs =@[@[@"1_0",@"(R U2 R') (R' F R F') U2 (R' F R F')",@0],
+                     @[@"2_0",@"[F (R U R' U') F' ] [f (R U R' U') f']",@0],
+                     @[@"3_0",@"[f (R U R' U') f'] U [F (R U R' U') F' ]",@0],
+                     @[@"4_0",@"[f (R U R' U') f'] U' [F (R U R' U') F' ]",@0],
+                     @[@"5_0",@"(R U R' U) (R' F R F') U2 (R' F R F')",@0],
+                     @[@"6_0",@"[F (R U R' U) F'] y' U2 (R' F R F')",@0],
+                     @[@"7_0",@"M U (R U R' U') M' (R' F R F') ",@0],
+                     @[@"8_0",@"M U (R U R' U') M2 (U R U' r')",@0],
+                     @[@"9_0",@"R' U2 R2 U R' U R U2 x' U' R' U",@0],
+                     @[@"10_0",@"F (R U R' U') R F' (r U R' U') r'",@0],
+                     @[@"11_0",@"f (R U R' U') (R U R' U') f'",@0],
+                     @[@"12_0",@"(R U R' U) R d' R U' R' F'",@0],
+                     @[@"13_0",@"(r U R' U) (R U' R' U) R U2' r'",@0],
+                     @[@"14_0",@"l' U' L U' L' U L U' L' U2 l",@0],
+                     @[@"15_0",@"(R' F R' F') R2 U2 y (R' F R F')",@0],
+                     @[@"16_0",@"R' F R2 B' R2' F' R2 B R'",@0],
+                     @[@"17_0",@"F (R U R' U') (R U R' U') F'",@0],
+                     @[@"18_0",@"F' (L' U' L U) (L' U' L U) F",@0],
+                     @[@"19_0",@"(r U R' U) R U2 r'",@0],
+                     @[@"20_0",@"r' U' R U' R' U2 r",@0],
+                     @[@"21_0",@"[F (R U R' U') F'] U [F (R U R' U') F' ]",@0],
+                     @[@"22_0",@"[F' (L' U' L U) F] y [F (R U R' U') F']",@0],
+                     @[@"23_0",@"(R U R' U') R' F R2 U R' U' F'",@0],
+                     @[@"24_0",@"(R U R' U) (R' F R F') R U2 R'",@0],
+                     @[@"25_0",@"r' U2 (R U R' U) r",@0],
+                     @[@"26_0",@"r U2 R' U' R U' r'",@0],
+                     @[@"27_0",@"F U R U' R2 F' R (U R U' R')",@0],
+                     @[@"28_0",@"R' F R U R' F' R y' (R U' R')",@0],
+                     @[@"29_0",@"(r U r') (R U R' U') (r U' r')",@0],
+                     @[@"30_0",@"(l' U' l) (L' U' L U) (l' U l)",@0],
+                     @[@"31_0",@"[(R U R' U) R U2 R'] [F (R U R' U') F']",@0],
+                     @[@"32_0",@"(R' F R F') (R' F R F') (R U R' U') (R U R')",@0],
+                     @[@"33_0",@"(R2 U R' B' R) U' (R2 U R B R')",@0],
+                     @[@"34_0",@"(R U R' U') R U' R' F' U' F (R U R')",@0],
+                     @[@"35_0",@"R U B' U' R' U R B R'",@0],
+                     @[@"36_0",@"R' U' F U R U' R' F' R",@0],
+                     @[@"37_0",@"F R U' R' U' R U R' F'",@0],
+                     @[@"38_0",@"f (R U R' U') f'",@0],
+                     @[@"39_0",@"f ' (L' U' L U) f",@0],
+                     @[@"40_0",@"(R U2 R') (R' F R F') (R U2 R')",@0],
+                     @[@"41_0",@"F (R U R' U') F'",@0],
+                     @[@"42_0",@"(R U R' U') (R' F R F')",@0],
+                     @[@"43_0",@"R B' R' U' R U B U' R' ",@0],
+                     @[@"44_0",@"R' [F (R U R' U') F'] U R",@0],
+                     @[@"45_0",@"(R U R2 U') (R' F) (R U) (R U') F'",@0],
+                     @[@"46_0",@"R' U' (R' F R F') U R",@0],
+                     @[@"47_0",@"(R U R' U) (R U' R' U') (R' F R F')",@0],
+                     @[@"48_0",@"(L' U' L U') (L' U L U) (L F' L' F)",@0],
+                     @[@"49_0",@"F (R U R' U') (R U R' U') (R U R' U') F'",@0],
+                     @[@"50_0",@"[f (R U R' U') f'] [F (R U R' U') F']",@0],
+                     @[@"51_0",@"R2 [D (R' U2) R] [D' (R' U2) R']",@0],
+                     @[@"52_0",@"(r U R' U') (r' F R F')",@0],
+                     @[@"53_0",@"F' (r U R' U') (r' F R )",@0],
+                     @[@"54_0",@"R U2 R' U' R U' R'",@0],
+                     @[@"55_0",@"(R U R' U) R U2 R'",@0],
+                     @[@"56_0",@"M' U M U2 M' U M",@0],
+                     @[@"57_0",@"(R U R' U') M' (U R U' r')",@0]];
     
-    for (NSArray *ollData in ollInfo)
+OLLCase *oll;
+Algorithm *alg;
+
+
+    for (NSArray *ollData in ollCases)
     {
         oll = [NSEntityDescription insertNewObjectForEntityForName:@"OLLCase" inManagedObjectContext:self.managedObjectContext];
         
-        oll.file_name = ollData[0];
-        oll.algorithm = ollData[1];
-        oll.cross_type = ollData[2];
-        oll.corners = ollData[3];
-        oll.type = ollData[4];
-        oll.rotations = [NSNumber numberWithInteger:0];
-    }
+        oll.uid = ollData[0];
+        oll.cross_type = ollData[1];
+        oll.corners = ollData[2];
+        oll.type = ollData[3];
+
+        for (NSArray *algData in ollAlgs)
+        {
+            NSString *compsString = algData[0];
+            NSArray *comps = [compsString componentsSeparatedByString:@"_"];
+            NSString *thisCase = comps[0];
+            NSString *algUid = comps[1];
+            
+            if ([thisCase isEqualToString:oll.uid])
+            {
+                alg = [NSEntityDescription insertNewObjectForEntityForName:@"Algorithm" inManagedObjectContext:self.managedObjectContext];
+                
+                alg.ollCase = oll;
+                alg.uid = algUid;
+                alg.algorithm = algData[1];
+                alg.rotations = algData[2];
+                
+                if (!oll.main)
+                    oll.main = alg;
+            }
+        }
+//        NSDictionary *algData = @{@"case": oll.uid,
+//                                  @"alg": oll.algorithm,
+//                                  @"rotations": @0
+//                                  };
+//    
+//        FIRDatabaseReference *devicesRef = [firebaseRootRef child:[NSString stringWithFormat:@"Algs/%@-0", oll.file_name]];
+//        
+//        [devicesRef setValue: algData];
+}
+    
+    
+    
+    
+    
+
     
     [self start];
 }
@@ -226,16 +325,19 @@
     if ([selectedCases count] > num)
     {
         ollCase = selectedCases[num];
-        self.largeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", ollCase.file_name]];
-        self.largeAlgorithmLabel.text = ollCase.algorithm;
+        self.largeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", ollCase.uid]];
+        self.largeAlgorithmLabel.text = ollCase.main.algorithm;
         self.largeAlgorithmLabel.adjustsFontSizeToFitWidth = YES;
+        
+        CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, .5 * M_PI * [ollCase.main.rotations integerValue]);
+        self.largeAlgorithmLabel.transform = transform;
     }
 }
 
 - (void)chooseAll
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OLLCase"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"file_name" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES]];
     
 //    NSArray *predicates = @[[NSPredicate predicateWithFormat:@"session = %@",self.currentSession],
 //                            [NSPredicate predicateWithFormat:@"boarded == NO"],
@@ -254,7 +356,7 @@
 - (void)chooseCross
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OLLCase"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"file_name" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES]];
     
 //    NSArray *predicates = @[[NSPredicate predicateWithFormat:@"cross_type = %@",crossNumber],
 //                            [NSPredicate predicateWithFormat:@"boarded == NO"],
@@ -277,7 +379,7 @@
 - (void)chooseCorners
     {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OLLCase"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"file_name" ascending:YES]];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES]];
         
         NSArray *predicates = @[[NSPredicate predicateWithFormat:@"cross_type = %@",selectedCross],
                                 [NSPredicate predicateWithFormat:@"corners == %@",selectedCorners]];
@@ -326,7 +428,7 @@
 - (void)chooseType
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OLLCase"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"file_name" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES]];
     
     NSArray *predicates = @[[NSPredicate predicateWithFormat:@"cross_type = %@",selectedCross],
                             [NSPredicate predicateWithFormat:@"corners == %@",selectedCorners],
@@ -434,11 +536,11 @@
     CaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CaseCell"];
     OLLCase *oll = selectedCases[indexPath.row];
     
-    cell.caseImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", oll.file_name]];
+    cell.caseImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", oll.uid]];
     cell.caseImage.contentMode = UIViewContentModeScaleAspectFit;
-    cell.algorithmLabel.text = oll.algorithm;
+    cell.algorithmLabel.text = oll.main.algorithm;
     cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
-    cell.algNumLabel.text = oll.file_name;
+    cell.algNumLabel.text = oll.uid;
     return cell;
 }
 
