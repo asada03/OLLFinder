@@ -39,6 +39,12 @@
 		41C816261F49EF97005F71F4 /* OLLCase+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C8161E1F49EF97005F71F4 /* OLLCase+CoreDataProperties.m */; };
 		41C816271F49EF97005F71F4 /* Algorithm+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816201F49EF97005F71F4 /* Algorithm+CoreDataClass.m */; };
 		41C816281F49EF97005F71F4 /* Algorithm+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */; };
+		41C8162C1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8162B1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png */; };
+		41C8162E1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8162D1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png */; };
+		41C816311F4B9670005F71F4 /* PlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816301F4B9670005F71F4 /* PlayButton.m */; };
+		41C816341F4B99CE005F71F4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816331F4B99CE005F71F4 /* VideoViewController.m */; };
+		41C816381F4B9A41005F71F4 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816371F4B9A41005F71F4 /* YTPlayerView.m */; };
+		41C8163A1F4B9A50005F71F4 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 41C816391F4B9A50005F71F4 /* Assets.bundle */; };
 		41E675CC1ED7D8DE0011938B /* oll1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CB1ED7D8DE0011938B /* oll1.png */; };
 		41E675E81ED7E5640011938B /* oll27.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CD1ED7E5640011938B /* oll27.png */; };
 		41E675E91ED7E5640011938B /* oll26.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E675CE1ED7E5640011938B /* oll26.png */; };
@@ -129,8 +135,8 @@
 		4119F1A21F3F5C40002F6BF4 /* ollT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollT.png; sourceTree = "<group>"; };
 		4119F1A31F3F5C40002F6BF4 /* ollM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollM.png; sourceTree = "<group>"; };
 		4119F1A41F3F5C40002F6BF4 /* ollS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollS.png; sourceTree = "<group>"; };
-		4119F1AE1F47B6BC002F6BF4 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
-		4119F1AF1F47B6BC002F6BF4 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		4119F1AE1F47B6BC002F6BF4 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICKeyChainStore.h; path = "OLL Finder/UICKeyChainStore.h"; sourceTree = "<group>"; };
+		4119F1AF1F47B6BC002F6BF4 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICKeyChainStore.m; path = "OLL Finder/UICKeyChainStore.m"; sourceTree = "<group>"; };
 		411E49641ED7EF3000466992 /* ollblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollblank.png; sourceTree = "<group>"; };
 		411E49651ED7EF3000466992 /* ollarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollarrow.png; sourceTree = "<group>"; };
 		411E49661ED7EF3000466992 /* ollline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollline.png; sourceTree = "<group>"; };
@@ -161,6 +167,15 @@
 		41C816201F49EF97005F71F4 /* Algorithm+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Algorithm+CoreDataClass.m"; sourceTree = "<group>"; };
 		41C816211F49EF97005F71F4 /* Algorithm+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Algorithm+CoreDataProperties.h"; sourceTree = "<group>"; };
 		41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Algorithm+CoreDataProperties.m"; sourceTree = "<group>"; };
+		41C8162B1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YouTube-icon-full_color small.png"; sourceTree = "<group>"; };
+		41C8162D1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YouTube-icon-full_color medium.png"; sourceTree = "<group>"; };
+		41C8162F1F4B9670005F71F4 /* PlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayButton.h; sourceTree = "<group>"; };
+		41C816301F4B9670005F71F4 /* PlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayButton.m; sourceTree = "<group>"; };
+		41C816321F4B99CE005F71F4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		41C816331F4B99CE005F71F4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		41C816361F4B9A41005F71F4 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		41C816371F4B9A41005F71F4 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		41C816391F4B9A50005F71F4 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		41E675CB1ED7D8DE0011938B /* oll1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll1.png; sourceTree = "<group>"; };
 		41E675CD1ED7E5640011938B /* oll27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll27.png; sourceTree = "<group>"; };
 		41E675CE1ED7E5640011938B /* oll26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oll26.png; sourceTree = "<group>"; };
@@ -275,9 +290,23 @@
 			name = Firebase;
 			sourceTree = "<group>";
 		};
+		41C816351F4B9A22005F71F4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4119F1AE1F47B6BC002F6BF4 /* UICKeyChainStore.h */,
+				4119F1AF1F47B6BC002F6BF4 /* UICKeyChainStore.m */,
+				41C816361F4B9A41005F71F4 /* YTPlayerView.h */,
+				41C816371F4B9A41005F71F4 /* YTPlayerView.m */,
+				41C816391F4B9A50005F71F4 /* Assets.bundle */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		773CF27D1AA2DACB009290DF = {
 			isa = PBXGroup;
 			children = (
+				41C816351F4B9A22005F71F4 /* Libraries */,
+				773CF3311AA2EE22009290DF /* Model */,
 				41C815FD1F49BD51005F71F4 /* Firebase */,
 				773CF2881AA2DACB009290DF /* OLL Finder */,
 				773CF2A21AA2DACB009290DF /* OLL FinderTests */,
@@ -297,7 +326,6 @@
 		773CF2881AA2DACB009290DF /* OLL Finder */ = {
 			isa = PBXGroup;
 			children = (
-				773CF3311AA2EE22009290DF /* Model */,
 				773CF28D1AA2DACB009290DF /* AppDelegate.h */,
 				773CF28E1AA2DACB009290DF /* AppDelegate.m */,
 				773CF2901AA2DACB009290DF /* ViewController.h */,
@@ -308,10 +336,12 @@
 				4121C34D1EE23DAA005B5AAB /* CaseViewController.m */,
 				775BE74B1AA2F6D2000E3A9D /* CaseTableViewCell.h */,
 				775BE74C1AA2F6D2000E3A9D /* CaseTableViewCell.m */,
-				4119F1AE1F47B6BC002F6BF4 /* UICKeyChainStore.h */,
-				4119F1AF1F47B6BC002F6BF4 /* UICKeyChainStore.m */,
+				41C816321F4B99CE005F71F4 /* VideoViewController.h */,
+				41C816331F4B99CE005F71F4 /* VideoViewController.m */,
 				773CF2931AA2DACB009290DF /* Main.storyboard */,
 				41EE46DC1AA372CA002AC26D /* iphone.storyboard */,
+				41C8162F1F4B9670005F71F4 /* PlayButton.h */,
+				41C816301F4B9670005F71F4 /* PlayButton.m */,
 				41C816081F49C19E005F71F4 /* Firebase.h */,
 				41C816131F49C689005F71F4 /* GoogleService-Info.plist */,
 				773CF2961AA2DACB009290DF /* Images.xcassets */,
@@ -324,6 +354,8 @@
 		773CF2891AA2DACB009290DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41C8162D1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png */,
+				41C8162B1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png */,
 				4119F19C1F3F5C40002F6BF4 /* ollF.png */,
 				4119F19D1F3F5C40002F6BF4 /* ollQ.png */,
 				4119F19E1F3F5C40002F6BF4 /* ollP.png */,
@@ -441,6 +473,7 @@
 				773CF3321AA2EE3D009290DF /* Model.xcdatamodeld */,
 			);
 			name = Model;
+			path = "OLL Finder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +603,7 @@
 				41E676301ED7EB230011938B /* oll42.png in Resources */,
 				41E676321ED7EB230011938B /* oll40.png in Resources */,
 				41E676011ED7E5640011938B /* oll3.png in Resources */,
+				41C8162E1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png in Resources */,
 				41E675CC1ED7D8DE0011938B /* oll1.png in Resources */,
 				41E675F31ED7E5640011938B /* oll16.png in Resources */,
 				4119F1AC1F3F5C40002F6BF4 /* ollM.png in Resources */,
@@ -578,6 +612,7 @@
 				41E676231ED7EB230011938B /* oll55.png in Resources */,
 				41E675FB1ED7E5640011938B /* oll8.png in Resources */,
 				773CF29A1AA2DACB009290DF /* LaunchScreen.xib in Resources */,
+				41C8163A1F4B9A50005F71F4 /* Assets.bundle in Resources */,
 				41E6763A1ED7EB230011938B /* oll32.png in Resources */,
 				4119F1A71F3F5C40002F6BF4 /* ollP.png in Resources */,
 				41E675F81ED7E5640011938B /* oll11.png in Resources */,
@@ -588,6 +623,7 @@
 				41E676241ED7EB230011938B /* oll54.png in Resources */,
 				41E675F11ED7E5640011938B /* oll18.png in Resources */,
 				41E675F01ED7E5640011938B /* oll19.png in Resources */,
+				41C8162C1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png in Resources */,
 				411E496F1ED7EF3000466992 /* ollline.png in Resources */,
 				41E675E81ED7E5640011938B /* oll27.png in Resources */,
 				4119F1AD1F3F5C40002F6BF4 /* ollS.png in Resources */,
@@ -625,14 +661,17 @@
 				773CF2921AA2DACB009290DF /* ViewController.m in Sources */,
 				41C816281F49EF97005F71F4 /* Algorithm+CoreDataProperties.m in Sources */,
 				773CF28F1AA2DACB009290DF /* AppDelegate.m in Sources */,
+				41C816381F4B9A41005F71F4 /* YTPlayerView.m in Sources */,
 				4119F1B01F47B6BC002F6BF4 /* UICKeyChainStore.m in Sources */,
 				773CF28C1AA2DACB009290DF /* main.m in Sources */,
 				41C816251F49EF97005F71F4 /* OLLCase+CoreDataClass.m in Sources */,
+				41C816341F4B99CE005F71F4 /* VideoViewController.m in Sources */,
 				41C816271F49EF97005F71F4 /* Algorithm+CoreDataClass.m in Sources */,
 				41C816231F49EF97005F71F4 /* Video+CoreDataClass.m in Sources */,
 				41C816241F49EF97005F71F4 /* Video+CoreDataProperties.m in Sources */,
 				775BE74D1AA2F6D2000E3A9D /* CaseTableViewCell.m in Sources */,
 				773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */,
+				41C816311F4B9670005F71F4 /* PlayButton.m in Sources */,
 				41C816261F49EF97005F71F4 /* OLLCase+CoreDataProperties.m in Sources */,
 				4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */,
 				7731C4711EE44CA500A5147D /* ImageButton.m in Sources */,

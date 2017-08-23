@@ -10,6 +10,7 @@
 #import "OLLCase+CoreDataProperties.h"
 #import "Algorithm+CoreDataProperties.h"
 #import "Video+CoreDataProperties.h"
+#import "Video+CoreDataProperties.h"
 #import "CaseTableViewCell.h"
 #import "CaseViewController.h"
 #import "ImageButton.h"
@@ -49,7 +50,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    version = @"1.1";
+    version = @"1.10";
     if (!self.managedObjectContext)
         [self useModelDocument];
     
@@ -106,8 +107,9 @@
     url = [url URLByAppendingPathComponent:@"Cases Data"];
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
-    if (![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
-        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
+    if (YES)
+//        ![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
+//        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
     {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:[url path] error:&error];
@@ -205,66 +207,151 @@
                                @[@"57",@1,@4,@""]];
 
  NSArray *ollAlgs =@[@[@"1_0",@"(R U2 R') (R' F R F') U2 (R' F R F')",@0],
-                     @[@"2_0",@"[F (R U R' U') F' ] [f (R U R' U') f']",@0],
-                     @[@"3_0",@"[f (R U R' U') f'] U [F (R U R' U') F' ]",@0],
-                     @[@"4_0",@"[f (R U R' U') f'] U' [F (R U R' U') F' ]",@0],
-                     @[@"5_0",@"(R U R' U) (R' F R F') U2 (R' F R F')",@0],
-                     @[@"6_0",@"[F (R U R' U) F'] y' U2 (R' F R F')",@0],
-                     @[@"7_0",@"M U (R U R' U') M' (R' F R F') ",@0],
-                     @[@"8_0",@"M U (R U R' U') M2 (U R U' r')",@0],
-                     @[@"9_0",@"R' U2 R2 U R' U R U2 x' U' R' U",@0],
-                     @[@"10_0",@"F (R U R' U') R F' (r U R' U') r'",@0],
-                     @[@"11_0",@"f (R U R' U') (R U R' U') f'",@0],
-                     @[@"12_0",@"(R U R' U) R d' R U' R' F'",@0],
-                     @[@"13_0",@"(r U R' U) (R U' R' U) R U2' r'",@0],
-                     @[@"14_0",@"l' U' L U' L' U L U' L' U2 l",@0],
-                     @[@"15_0",@"(R' F R' F') R2 U2 y (R' F R F')",@0],
-                     @[@"16_0",@"R' F R2 B' R2' F' R2 B R'",@0],
-                     @[@"17_0",@"F (R U R' U') (R U R' U') F'",@0],
-                     @[@"18_0",@"F' (L' U' L U) (L' U' L U) F",@0],
-                     @[@"19_0",@"(r U R' U) R U2 r'",@0],
-                     @[@"20_0",@"r' U' R U' R' U2 r",@0],
-                     @[@"21_0",@"[F (R U R' U') F'] U [F (R U R' U') F' ]",@0],
-                     @[@"22_0",@"[F' (L' U' L U) F] y [F (R U R' U') F']",@0],
-                     @[@"23_0",@"(R U R' U') R' F R2 U R' U' F'",@0],
-                     @[@"24_0",@"(R U R' U) (R' F R F') R U2 R'",@0],
-                     @[@"25_0",@"r' U2 (R U R' U) r",@0],
-                     @[@"26_0",@"r U2 R' U' R U' r'",@0],
-                     @[@"27_0",@"F U R U' R2 F' R (U R U' R')",@0],
-                     @[@"28_0",@"R' F R U R' F' R y' (R U' R')",@0],
-                     @[@"29_0",@"(r U r') (R U R' U') (r U' r')",@0],
-                     @[@"30_0",@"(l' U' l) (L' U' L U) (l' U l)",@0],
-                     @[@"31_0",@"[(R U R' U) R U2 R'] [F (R U R' U') F']",@0],
-                     @[@"32_0",@"(R' F R F') (R' F R F') (R U R' U') (R U R')",@0],
-                     @[@"33_0",@"(R2 U R' B' R) U' (R2 U R B R')",@0],
-                     @[@"34_0",@"(R U R' U') R U' R' F' U' F (R U R')",@0],
-                     @[@"35_0",@"R U B' U' R' U R B R'",@0],
-                     @[@"36_0",@"R' U' F U R U' R' F' R",@0],
-                     @[@"37_0",@"F R U' R' U' R U R' F'",@0],
-                     @[@"38_0",@"f (R U R' U') f'",@0],
-                     @[@"39_0",@"f ' (L' U' L U) f",@0],
-                     @[@"40_0",@"(R U2 R') (R' F R F') (R U2 R')",@0],
-                     @[@"41_0",@"F (R U R' U') F'",@0],
-                     @[@"42_0",@"(R U R' U') (R' F R F')",@0],
-                     @[@"43_0",@"R B' R' U' R U B U' R' ",@0],
-                     @[@"44_0",@"R' [F (R U R' U') F'] U R",@0],
-                     @[@"45_0",@"(R U R2 U') (R' F) (R U) (R U') F'",@0],
-                     @[@"46_0",@"R' U' (R' F R F') U R",@0],
-                     @[@"47_0",@"(R U R' U) (R U' R' U') (R' F R F')",@0],
-                     @[@"48_0",@"(L' U' L U') (L' U L U) (L F' L' F)",@0],
-                     @[@"49_0",@"F (R U R' U') (R U R' U') (R U R' U') F'",@0],
-                     @[@"50_0",@"[f (R U R' U') f'] [F (R U R' U') F']",@0],
-                     @[@"51_0",@"R2 [D (R' U2) R] [D' (R' U2) R']",@0],
-                     @[@"52_0",@"(r U R' U') (r' F R F')",@0],
-                     @[@"53_0",@"F' (r U R' U') (r' F R )",@0],
-                     @[@"54_0",@"R U2 R' U' R U' R'",@0],
-                     @[@"55_0",@"(R U R' U) R U2 R'",@0],
-                     @[@"56_0",@"M' U M U2 M' U M",@0],
-                     @[@"57_0",@"(R U R' U') M' (U R U' r')",@0]];
+     @[@"2_0",@"(r U r') (U2 R U2 R' U2) (r U' r')",@1],
+     @[@"2_1",@"[F (R U R' U') F' ] [f (R U R' U') f']",@0],
+     @[@"3_0",@"[f (R U R' U') f'] U [F (R U R' U') F' ]",@0],
+     @[@"4_0",@"[f (R U R' U') f'] U' [F (R U R' U') F' ]",@0],
+     @[@"5_0",@"(R U R' U) (R' F R F') U2 (R' F R F')",@0],
+     @[@"6_0",@"(R U2) (R2 F R F') U2 (M' U R U' r')",@-1],
+     @[@"6_1",@"[F (R U R' U) F'] y' U2 (R' F R F')",@0],
+     @[@"7_0",@"M U (R U R' U') M' (R' F R F') ",@0],
+     @[@"8_0",@"(M' U2 M) U2 (M' U' M) U2 (M' U2 M)",@0],
+     @[@"8_1",@"r U R' U' M2 U R U' R' U' M'",@0],
+     @[@"8_2",@"M U (R U R' U') M2 (U R U' r')",@0],
+     @[@"9_0",@"(R' F R) U (R U' R2 F') (R2 U' R') U (R U R')",@1],
+     @[@"9_1",@"R' U2 R2 U R' U R U2 x' U' R' U",@0],
+     @[@"10_0",@"r' U' r (U' R' U R) (U' R' U R) r' U r",@0],
+     @[@"10_1",@"F (R U R' U') R F' (r U R' U') r'",@0],
+     @[@"11_0",@"F (U R U' R') (U R U' R') F'",@2],
+     @[@"11_1",@"f (R U R' U') (R U R' U') f'",@0],
+     @[@"12_0",@"(R U R' U) (R U') (B U' B' R)",@0],
+     @[@"12_1",@"(R U R' U) R d' R U' R' F'",@0],
+     @[@"13_0",@"(r U2) (R' U' R U) (R' U' R U') r'",@-1],
+     @[@"13_1",@"(r U R' U) (R U' R' U) R U2' r'",@0],
+     @[@"14_0",@"(l' U' L U') (L' U L U') (L' U2 l)",@0],
+     @[@"15_0",@"(r U') (r2 U r2 U) (r2 U' r)",@0],
+     @[@"15_1",@"(R' F R' F') R2 U2 y (R' F R F')",@0],
+     @[@"16_0",@"(R' F) (R2 B' R2' F') (R2 B R')",@0],
+     @[@"17_0",@"F (R U R' U') (R U R' U') F'",@0],
+     @[@"18_0",@"F' (L' U' L U) (L' U' L U) F",@0],
+     @[@"19_0",@"(r U R' U) R U2 r'",@0],
+     @[@"20_0",@"l' U' L U' L' U2 l",@2],
+     @[@"20_1",@"r' U' R U' R' U2 r",@0],
+     @[@"21_0",@"M' (R' U' R U' R' U2 R) U' M",@-1],
+     @[@"21_1",@"[F (R U R' U') F'] U [F (R U R' U') F' ]",@0],
+     @[@"22_0",@"M (R U R' U R U2 R') U M'",@-1],
+     @[@"22_1",@"[F' (L' U' L U) F] y [F (R U R' U') F']",@0],
+     @[@"23_0",@"(R U R' U' R' F) (R2 U R' U' F')",@0],
+     @[@"24_0",@"(R U R' U) (R' F R F') (R U2 R')",@0],
+     @[@"25_0",@"l' U2 L U L' U l",@2],
+     @[@"25_1",@"r' U2 (R U R' U) r",@0],
+     @[@"26_0",@"r U2 R' U' R U' r'",@0],
+     @[@"27_0",@"F U R U' R2 F' R (U R U' R')",@0],
+     @[@"28_0",@"(R' F) (R U R' F' R) (F U' F')",@0],
+     @[@"28_1",@"(R' F) (R U R' F' R) y' (R U' R')",@0],
+     @[@"29_0",@"(r U r') (R U R' U') (r U' r')",@0],
+     @[@"30_0",@"(l' U' l) (L' U' L U) (l' U l)",@0],
+     @[@"31_0",@"[(R U R' U) R U2 R'] [F (R U R' U') F']",@0],
+     @[@"32_0",@"(R' U' R U' R' U2 R) (F R U R' U' F')",@-1],
+     @[@"32_1",@"(R' F R F') (R' F R F') (R U R' U') (R U R')",@0],
+     @[@"33_0",@"(F R' F) (R2 U' R' U') (R U R') F2",@2],
+     @[@"33_1",@"(R2 U R' B' R) U' (R2 U R B R')",@0],
+     @[@"34_0",@"r2 D' (r U r') D r2 U' (r' U' r)",@-1],
+     @[@"34_1",@"(R U R' U') R U' R' F' U' F (R U R')",@0],
+     @[@"35_0",@"(R U B') U' R' U (R B R')",@0],
+     @[@"36_0",@"(R' U') F (U R U' R') F' R",@0],
+     @[@"37_0",@"F (R U') (R' U' R U) (R' F')",@0],
+     @[@"38_0",@"F (U R U' R') F",@2],
+     @[@"38_1",@"f (R U R' U') f'",@0],
+     @[@"39_0",@"R'(U' F' U F) R",@1],
+     @[@"39_1",@"f ' (L' U' L U) f",@0],
+     @[@"40_0",@"(R U2) (R2 F) (R F' R U2 R')",@0],
+     @[@"41_0",@"F (R U R' U') F'",@0],
+     @[@"42_0",@"(R U R' U') (R' F R F')",@0],
+     @[@"43_0",@"(L F') (L' U' L U) F U' L'",@2],
+     @[@"43_1",@"R B' R' U' R U B U' R'",@0],
+     @[@"44_0",@"(R' F) (R U R' U') F' U R",@0],
+     @[@"45_0",@"(R U R' U') y' [r' U' R U M'",@0],
+     @[@"45_1",@"(R U R2 U') (R' F) (R U) (R U') F'",@0],
+     @[@"46_0",@"(R' U') (R' F R F') (U R)",@0],
+     @[@"47_0",@"(R U R' U) (R U' R' U') (R' F R F')",@0],
+     @[@"48_0",@"(L' U' L U') (L' U L U) (L F' L' F)",@0],
+     @[@"49_0",@"(R U2) (R' U' R U R' U' R U' R)",@0],
+     @[@"49_1",@"F (R U R' U') (R U R' U') (R U R' U') F'",@0],
+     @[@"50_0",@"(R U2) (R2 U') (R2 U') (R2 U2 R)",@0],
+     @[@"50_1",@"[f (R U R' U') f'] [F (R U R' U') F']",@0],
+     @[@"51_0",@"R2 [D (R' U2) R] [D' (R' U2) R']",@0],
+     @[@"52_0",@"(r U R' U') (r' F R F')",@0],
+     @[@"53_0",@"(F R' F' r U) (R U' r')",@-1],
+     @[@"53_1",@"F' (r U R' U') (r' F R )",@0],
+     @[@"54_0",@"R U2 R' U' R U' R'",@0],
+     @[@"55_0",@"(R U R' U) R U2 R'",@0],
+     @[@"56_0",@"M' U' M U2 M' U' M",@1],
+     @[@"56_1",@"M' U M U2 M' U M",@0],
+     @[@"57_0",@"(R U R' U') (M' U R U') r'",@0]];
+    
+NSArray *ollVids =@[@[@"55_0",@"UberCuber",@0, @37, @10, @"Qr1ETRAQPKI"],
+                    @[@"54_0",@"UberCuber",@0, @46, @10, @"Qr1ETRAQPKI"],
+                    @[@"52_0_",@"UberCuber",@0, @55, @10, @"Qr1ETRAQPKI"],
+                    @[@"51_0",@"UberCuber",@1, @4, @12, @"Qr1ETRAQPKI"],
+                    @[@"53_0",@"UberCuber",@1, @15, @9, @"Qr1ETRAQPKI"],
+                    @[@"50_0",@"UberCuber",@1, @23, @11, @"Qr1ETRAQPKI"],
+                    @[@"49_0",@"UberCuber",@1, @33, @10, @"Qr1ETRAQPKI"],
+                    @[@"1_0",@"UberCuber",@1, @51.5, @10, @"Qr1ETRAQPKI"],
+                    @[@"2_0",@"UberCuber",@2, @3, @11.5, @"Qr1ETRAQPKI"],
+                    @[@"4_0",@"UberCuber",@2, @15.5, @11, @"Qr1ETRAQPKI"],
+                    @[@"3_0",@"UberCuber",@2, @27, @11.5, @"Qr1ETRAQPKI"],
+                    @[@"5_0",@"UberCuber",@2, @40, @9.5, @"Qr1ETRAQPKI"],
+                    @[@"6_0",@"UberCuber",@2, @50, @11.5, @"Qr1ETRAQPKI"],
+                    @[@"7_0",@"UberCuber",@3, @2.3, @11.5, @"Qr1ETRAQPKI"],
+                    @[@"8_0",@"UberCuber",@3, @20.5, @10, @"Qr1ETRAQPKI"],
+                    @[@"8_1",@"UberCuber",@3, @31, @10, @"Qr1ETRAQPKI"],
+                    @[@"36_0",@"UberCuber",@3, @44, @11, @"Qr1ETRAQPKI"],
+                    @[@"35_0",@"UberCuber",@3, @54, @13, @"Qr1ETRAQPKI"],
+                    @[@"38_0",@"UberCuber",@4, @6, @11, @"Qr1ETRAQPKI"],
+                    @[@"39_0",@"UberCuber",@4, @16, @9, @"Qr1ETRAQPKI"],
+                    @[@"48_0",@"UberCuber",@4, @24, @13, @"Qr1ETRAQPKI"],
+                    @[@"47_0",@"UberCuber",@4, @36, @14, @"Qr1ETRAQPKI"],
+                    @[@"18_0",@"UberCuber",@4, @49, @107, @"Qr1ETRAQPKI"],
+                    @[@"17_0",@"UberCuber",@4, @56, @18, @"Qr1ETRAQPKI"],
+                    @[@"15_0",@"UberCuber",@5, @3, @10, @"Qr1ETRAQPKI"],
+                    @[@"14_0",@"UberCuber",@5, @17, @7.5, @"Qr1ETRAQPKI"],
+                    @[@"13_0",@"UberCuber",@5, @25, @9.5, @"Qr1ETRAQPKI"],
+                    @[@"46_0",@"UberCuber",@5, @38, @7, @"Qr1ETRAQPKI"],
+                    @[@"45_0",@"UberCuber",@5, @44, @13, @"Qr1ETRAQPKI"],
+                    @[@"41_0",@"UberCuber",@5, @57, @9, @"Qr1ETRAQPKI"],
+                    @[@"42_0",@"UberCuber",@6, @5, @12, @"Qr1ETRAQPKI"],
+                    @[@"11_0",@"UberCuber",@6, @16, @8, @"Qr1ETRAQPKI"],
+                    @[@"12_0",@"UberCuber",@6, @23, @11, @"Qr1ETRAQPKI"],
+                    @[@"9_0",@"UberCuber",@6, @33, @10, @"Qr1ETRAQPKI"],
+                    @[@"10_0",@"UberCuber",@6, @42, @12, @"Qr1ETRAQPKI"],
+                    @[@"25_0",@"UberCuber",@6, @53, @10, @"Qr1ETRAQPKI"],
+                    @[@"26_0",@"UberCuber",@7, @4, @13, @"Qr1ETRAQPKI"],
+                    @[@"43_0",@"UberCuber",@7, @16, @8, @"Qr1ETRAQPKI"],
+                    @[@"44_0",@"UberCuber",@7, @23, @11, @"Qr1ETRAQPKI"],
+                    @[@"19_0",@"UberCuber",@7, @33, @10, @"Qr1ETRAQPKI"],
+                    @[@"20_0",@"UberCuber",@7, @42, @8, @"Qr1ETRAQPKI"],
+                    @[@"22_0",@"UberCuber",@7, @49, @12, @"Qr1ETRAQPKI"],
+                    @[@"21_0",@"UberCuber",@8, @0, @14, @"Qr1ETRAQPKI"],
+                    @[@"23_0",@"UberCuber",@8, @14, @11, @"Qr1ETRAQPKI"],
+                    @[@"24_0",@"UberCuber",@8, @24, @11, @"Qr1ETRAQPKI"],
+                    @[@"40_0",@"UberCuber",@8, @34, @10, @"Qr1ETRAQPKI"],
+                    @[@"37_0",@"UberCuber",@8, @43, @11, @"Qr1ETRAQPKI"],
+                    @[@"27_0",@"UberCuber",@8, @53, @12, @"Qr1ETRAQPKI"],
+                    @[@"28_0",@"UberCuber",@9, @4, @6, @"Qr1ETRAQPKI"],
+                    @[@"30_0",@"UberCuber",@9, @9, @9, @"Qr1ETRAQPKI"],
+                    @[@"29_0",@"UberCuber",@9, @17, @10, @"Qr1ETRAQPKI"],
+                    @[@"34_0",@"UberCuber",@9, @30, @11, @"Qr1ETRAQPKI"],
+                    @[@"33_0",@"UberCuber",@9, @40, @7, @"Qr1ETRAQPKI"],
+                    @[@"31_0",@"UberCuber",@9, @46, @9, @"Qr1ETRAQPKI"],
+                    @[@"32_0",@"UberCuber",@9, @54, @10, @"Qr1ETRAQPKI"],
+                    @[@"56_0",@"UberCuber",@10, @6, @8, @"Qr1ETRAQPKI"],
+                    @[@"57_0",@"UberCuber",@10, @13, @10, @"Qr1ETRAQPKI"]];
+    
     
 OLLCase *oll;
 Algorithm *alg;
-
+Video *vid;
 
     for (NSArray *ollData in ollCases)
     {
@@ -293,6 +380,23 @@ Algorithm *alg;
                 
                 if (!oll.main)
                     oll.main = alg;
+                
+                for (NSArray *vidData in ollVids)
+                {
+                    if ([compsString isEqualToString:vidData[0]])
+                    {
+                        vid = [NSEntityDescription insertNewObjectForEntityForName:@"Video" inManagedObjectContext:self.managedObjectContext];
+                        
+                        vid.algorithm = alg;
+                        vid.author = vidData[1];
+                        
+                        float minutes = [vidData[2] floatValue];
+                        float seconds = [vidData[3] floatValue];
+                        vid.start = [NSNumber numberWithFloat:minutes*60 + seconds];
+                        vid.duration = vidData[4];
+                        vid.vidId = vidData[5];
+                    }
+                }
             }
         }
 //        NSDictionary *algData = @{@"case": oll.uid,
@@ -541,6 +645,7 @@ Algorithm *alg;
     cell.algorithmLabel.text = oll.main.algorithm;
     cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
     cell.algNumLabel.text = oll.uid;
+    cell.rotations = [oll.main.rotations integerValue];
     return cell;
 }
 

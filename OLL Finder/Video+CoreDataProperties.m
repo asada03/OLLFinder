@@ -2,7 +2,7 @@
 //  Video+CoreDataProperties.m
 //  OLL Finder
 //
-//  Created by Andres Luis Sada Govela on 20/08/17.
+//  Created by Andres Luis Sada Govela on 21/08/17.
 //  Copyright © 2017 Andres Sada Govela. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"Video"];
 }
 
-@dynamic start;
-@dynamic uid;
 @dynamic author;
+@dynamic start;
+@dynamic vidId;
+@dynamic duration;
 @dynamic algorithm;
 
 @end

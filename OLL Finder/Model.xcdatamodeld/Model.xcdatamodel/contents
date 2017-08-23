@@ -18,13 +18,14 @@
     </entity>
     <entity name="Video" representedClassName="Video" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="start" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="vidId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="algorithm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Algorithm" inverseName="videos" inverseEntity="Algorithm" syncable="YES"/>
     </entity>
     <elements>
-        <element name="OLLCase" positionX="-414" positionY="32" width="128" height="133"/>
         <element name="Algorithm" positionX="-243" positionY="36" width="128" height="133"/>
-        <element name="Video" positionX="-74" positionY="41" width="128" height="103"/>
+        <element name="OLLCase" positionX="-414" positionY="32" width="128" height="133"/>
+        <element name="Video" positionX="-74" positionY="41" width="128" height="120"/>
     </elements>
 </model>
