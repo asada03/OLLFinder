@@ -20,9 +20,9 @@
 @interface ViewController ()
 {
     FIRDatabaseReference *firebaseRootRef;
+    CaseViewController *caseView;
 
     NSString *version;
-    NSArray *selectedCases;
     NSMutableArray *caseTypes;
     NSNumber *selectedCross;
     NSNumber *selectedCorners;
@@ -32,8 +32,6 @@
     BOOL viewAppeared;
 }
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
-@property (strong, nonatomic) IBOutlet UIImageView *largeImage;
-@property (strong, nonatomic) IBOutlet UILabel *largeAlgorithmLabel;
 @property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *crossButtons;
 @property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *cornerButtons;
 @property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *typeButtons;
@@ -41,10 +39,24 @@
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonsViewHeight;
 
+@property (strong, nonatomic) NSArray *selectedCases;
 
 @end
 
 @implementation ViewController
+
+- (void)setSelectedCases:(NSArray *)selectedCases
+{
+    _selectedCases = selectedCases;
+    
+    if ([selectedCases count] > 0)
+    {
+        ollCase = selectedCases[0];
+        
+        if (caseView)
+            caseView.ollCase = ollCase;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -94,6 +106,8 @@
 
         self.buttonsViewHeight.constant = 72;
     }
+    
+    [self.casesTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,6 +121,7 @@
     url = [url URLByAppendingPathComponent:@"Cases Data"];
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
+    #warning Remember to fix this.
     if (YES)
 //        ![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
 //        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
@@ -271,7 +286,7 @@
      @[@"43_0",@"(L F') (L' U' L U) F U' L'",@2],
      @[@"43_1",@"R B' R' U' R U B U' R'",@0],
      @[@"44_0",@"(R' F) (R U R' U') F' U R",@0],
-     @[@"45_0",@"(R U R' U') y' [r' U' R U M'",@0],
+     @[@"45_0",@"(R U R' U') y' (r' U' R U M')",@0],
      @[@"45_1",@"(R U R2 U') (R' F) (R U) (R U') F'",@0],
      @[@"46_0",@"(R' U') (R' F R F') (U R)",@0],
      @[@"47_0",@"(R U R' U) (R U' R' U') (R' F R F')",@0],
@@ -290,63 +305,72 @@
      @[@"56_1",@"M' U M U2 M' U M",@0],
      @[@"57_0",@"(R U R' U') (M' U R U') r'",@0]];
     
-NSArray *ollVids =@[@[@"55_0",@"UberCuber",@0, @37, @10, @"Qr1ETRAQPKI"],
-                    @[@"54_0",@"UberCuber",@0, @46, @10, @"Qr1ETRAQPKI"],
-                    @[@"52_0_",@"UberCuber",@0, @55, @10, @"Qr1ETRAQPKI"],
-                    @[@"51_0",@"UberCuber",@1, @4, @12, @"Qr1ETRAQPKI"],
-                    @[@"53_0",@"UberCuber",@1, @15, @9, @"Qr1ETRAQPKI"],
-                    @[@"50_0",@"UberCuber",@1, @23, @11, @"Qr1ETRAQPKI"],
-                    @[@"49_0",@"UberCuber",@1, @33, @10, @"Qr1ETRAQPKI"],
-                    @[@"1_0",@"UberCuber",@1, @51.5, @10, @"Qr1ETRAQPKI"],
-                    @[@"2_0",@"UberCuber",@2, @3, @11.5, @"Qr1ETRAQPKI"],
-                    @[@"4_0",@"UberCuber",@2, @15.5, @11, @"Qr1ETRAQPKI"],
-                    @[@"3_0",@"UberCuber",@2, @27, @11.5, @"Qr1ETRAQPKI"],
-                    @[@"5_0",@"UberCuber",@2, @40, @9.5, @"Qr1ETRAQPKI"],
-                    @[@"6_0",@"UberCuber",@2, @50, @11.5, @"Qr1ETRAQPKI"],
-                    @[@"7_0",@"UberCuber",@3, @2.3, @11.5, @"Qr1ETRAQPKI"],
-                    @[@"8_0",@"UberCuber",@3, @20.5, @10, @"Qr1ETRAQPKI"],
-                    @[@"8_1",@"UberCuber",@3, @31, @10, @"Qr1ETRAQPKI"],
-                    @[@"36_0",@"UberCuber",@3, @44, @11, @"Qr1ETRAQPKI"],
-                    @[@"35_0",@"UberCuber",@3, @54, @13, @"Qr1ETRAQPKI"],
-                    @[@"38_0",@"UberCuber",@4, @6, @11, @"Qr1ETRAQPKI"],
-                    @[@"39_0",@"UberCuber",@4, @16, @9, @"Qr1ETRAQPKI"],
-                    @[@"48_0",@"UberCuber",@4, @24, @13, @"Qr1ETRAQPKI"],
-                    @[@"47_0",@"UberCuber",@4, @36, @14, @"Qr1ETRAQPKI"],
-                    @[@"18_0",@"UberCuber",@4, @49, @107, @"Qr1ETRAQPKI"],
-                    @[@"17_0",@"UberCuber",@4, @56, @18, @"Qr1ETRAQPKI"],
-                    @[@"15_0",@"UberCuber",@5, @3, @10, @"Qr1ETRAQPKI"],
-                    @[@"14_0",@"UberCuber",@5, @17, @7.5, @"Qr1ETRAQPKI"],
-                    @[@"13_0",@"UberCuber",@5, @25, @9.5, @"Qr1ETRAQPKI"],
-                    @[@"46_0",@"UberCuber",@5, @38, @7, @"Qr1ETRAQPKI"],
-                    @[@"45_0",@"UberCuber",@5, @44, @13, @"Qr1ETRAQPKI"],
-                    @[@"41_0",@"UberCuber",@5, @57, @9, @"Qr1ETRAQPKI"],
-                    @[@"42_0",@"UberCuber",@6, @5, @12, @"Qr1ETRAQPKI"],
-                    @[@"11_0",@"UberCuber",@6, @16, @8, @"Qr1ETRAQPKI"],
-                    @[@"12_0",@"UberCuber",@6, @23, @11, @"Qr1ETRAQPKI"],
-                    @[@"9_0",@"UberCuber",@6, @33, @10, @"Qr1ETRAQPKI"],
-                    @[@"10_0",@"UberCuber",@6, @42, @12, @"Qr1ETRAQPKI"],
-                    @[@"25_0",@"UberCuber",@6, @53, @10, @"Qr1ETRAQPKI"],
-                    @[@"26_0",@"UberCuber",@7, @4, @13, @"Qr1ETRAQPKI"],
-                    @[@"43_0",@"UberCuber",@7, @16, @8, @"Qr1ETRAQPKI"],
-                    @[@"44_0",@"UberCuber",@7, @23, @11, @"Qr1ETRAQPKI"],
-                    @[@"19_0",@"UberCuber",@7, @33, @10, @"Qr1ETRAQPKI"],
-                    @[@"20_0",@"UberCuber",@7, @42, @8, @"Qr1ETRAQPKI"],
-                    @[@"22_0",@"UberCuber",@7, @49, @12, @"Qr1ETRAQPKI"],
-                    @[@"21_0",@"UberCuber",@8, @0, @14, @"Qr1ETRAQPKI"],
-                    @[@"23_0",@"UberCuber",@8, @14, @11, @"Qr1ETRAQPKI"],
-                    @[@"24_0",@"UberCuber",@8, @24, @11, @"Qr1ETRAQPKI"],
-                    @[@"40_0",@"UberCuber",@8, @34, @10, @"Qr1ETRAQPKI"],
-                    @[@"37_0",@"UberCuber",@8, @43, @11, @"Qr1ETRAQPKI"],
-                    @[@"27_0",@"UberCuber",@8, @53, @12, @"Qr1ETRAQPKI"],
-                    @[@"28_0",@"UberCuber",@9, @4, @6, @"Qr1ETRAQPKI"],
-                    @[@"30_0",@"UberCuber",@9, @9, @9, @"Qr1ETRAQPKI"],
-                    @[@"29_0",@"UberCuber",@9, @17, @10, @"Qr1ETRAQPKI"],
-                    @[@"34_0",@"UberCuber",@9, @30, @11, @"Qr1ETRAQPKI"],
-                    @[@"33_0",@"UberCuber",@9, @40, @7, @"Qr1ETRAQPKI"],
-                    @[@"31_0",@"UberCuber",@9, @46, @9, @"Qr1ETRAQPKI"],
-                    @[@"32_0",@"UberCuber",@9, @54, @10, @"Qr1ETRAQPKI"],
-                    @[@"56_0",@"UberCuber",@10, @6, @8, @"Qr1ETRAQPKI"],
-                    @[@"57_0",@"UberCuber",@10, @13, @10, @"Qr1ETRAQPKI"]];
+NSArray *ollVids =@[@[@"55_0",@"UberCuber",@0, @39, @6, @"Qr1ETRAQPKI"],
+                    @[@"54_0",@"UberCuber",@0, @48, @6.7, @"Qr1ETRAQPKI"],
+                    @[@"52_0_",@"UberCuber",@0, @55, @7.7, @"Qr1ETRAQPKI"],
+                    @[@"51_0",@"UberCuber",@1, @4, @9.9, @"Qr1ETRAQPKI"],
+                    @[@"53_0",@"UberCuber",@1, @15, @7, @"Qr1ETRAQPKI"],
+                    @[@"50_0",@"UberCuber",@1, @23, @10.2, @"Qr1ETRAQPKI"],
+                    @[@"49_0",@"UberCuber",@1, @37, @8.1, @"Qr1ETRAQPKI"],
+                    @[@"1_0",@"UberCuber",@1, @53, @8.4, @"Qr1ETRAQPKI"],
+                    @[@"2_0",@"UberCuber",@2, @4, @9.9, @"Qr1ETRAQPKI"],
+                    @[@"4_0",@"UberCuber",@2, @16, @10.6, @"Qr1ETRAQPKI"],
+                    @[@"3_0",@"UberCuber",@2, @27, @11.7, @"Qr1ETRAQPKI"],
+                    @[@"5_0",@"UberCuber",@2, @40, @8.3, @"Qr1ETRAQPKI"],
+                    @[@"6_0",@"UberCuber",@2, @50, @11.1, @"Qr1ETRAQPKI"],
+                    @[@"7_0",@"UberCuber",@3, @2, @11.6, @"Qr1ETRAQPKI"],
+                    @[@"8_0",@"UberCuber",@3, @20, @10.1, @"Qr1ETRAQPKI"],
+                    @[@"8_1",@"UberCuber",@3, @31, @9.8, @"Qr1ETRAQPKI"],
+                    @[@"36_0",@"UberCuber",@3, @44, @9, @"Qr1ETRAQPKI"],
+                    @[@"35_0",@"UberCuber",@3, @56, @9.5, @"Qr1ETRAQPKI"],
+                    @[@"38_0",@"UberCuber",@4, @6, @8, @"Qr1ETRAQPKI"],
+                    @[@"39_0",@"UberCuber",@4, @15, @4.8, @"Qr1ETRAQPKI"],
+                    @[@"48_0",@"UberCuber",@4, @25, @10, @"Qr1ETRAQPKI"],
+                    @[@"47_0",@"UberCuber",@4, @37, @7.6, @"Qr1ETRAQPKI"],
+                    @[@"18_0",@"UberCuber",@4, @50, @5.7, @"Qr1ETRAQPKI"],
+                    @[@"17_0",@"UberCuber",@4, @56, @6.1, @"Qr1ETRAQPKI"],
+                    @[@"15_0",@"UberCuber",@5, @3, @6.4, @"Qr1ETRAQPKI"],
+                    @[@"16_0",@"UberCuber",@5, @10, @6, @"Qr1ETRAQPKI"],
+                    @[@"14_0",@"UberCuber",@5, @17, @6.9, @"Qr1ETRAQPKI"],
+                    @[@"13_0",@"UberCuber",@5, @26, @7.4, @"Qr1ETRAQPKI"],
+                    @[@"46_0",@"UberCuber",@5, @38, @5.2, @"Qr1ETRAQPKI"],
+                    @[@"45_0",@"UberCuber",@5, @45, @7.3, @"Qr1ETRAQPKI"],
+                    @[@"41_0",@"UberCuber",@5, @58, @6.2, @"Qr1ETRAQPKI"],
+                    @[@"42_0",@"UberCuber",@6, @5, @6.5, @"Qr1ETRAQPKI"],
+                    @[@"11_0",@"UberCuber",@6, @17, @5.4, @"Qr1ETRAQPKI"],
+                    @[@"12_0",@"UberCuber",@6, @25, @6.7, @"Qr1ETRAQPKI"],
+                    @[@"9_0",@"UberCuber",@6, @34, @7.4, @"Qr1ETRAQPKI"],
+                    @[@"10_0",@"UberCuber",@6, @42, @6.5, @"Qr1ETRAQPKI"],
+                    @[@"25_0",@"UberCuber",@6, @55, @7.9, @"Qr1ETRAQPKI"],
+                    @[@"26_0",@"UberCuber",@7, @4, @7.9, @"Qr1ETRAQPKI"],
+                    @[@"43_0",@"UberCuber",@7, @16, @5.9, @"Qr1ETRAQPKI"],
+                    @[@"44_0",@"UberCuber",@7, @23, @5.9, @"Qr1ETRAQPKI"],
+                    @[@"19_0",@"UberCuber",@7, @34, @7.22, @"Qr1ETRAQPKI"],
+                    @[@"20_0",@"UberCuber",@7, @42, @6.24, @"Qr1ETRAQPKI"],
+                    @[@"22_0",@"UberCuber",@7, @49, @10.1, @"Qr1ETRAQPKI"],
+                    @[@"21_0",@"UberCuber",@8, @1, @8.7, @"Qr1ETRAQPKI"],
+                    @[@"23_0",@"UberCuber",@8, @14, @9.1, @"Qr1ETRAQPKI"],
+                    @[@"24_0",@"UberCuber",@8, @24, @9, @"Qr1ETRAQPKI"],
+                    @[@"40_0",@"UberCuber",@8, @33, @8.5, @"Qr1ETRAQPKI"],
+                    @[@"37_0",@"UberCuber",@8, @42, @6.7, @"Qr1ETRAQPKI"],
+                    @[@"27_0",@"UberCuber",@8, @53, @9.9, @"Qr1ETRAQPKI"],
+                    @[@"28_0",@"UberCuber",@9, @4, @3.8, @"Qr1ETRAQPKI"],
+                    @[@"30_0",@"UberCuber",@9, @9, @6.7, @"Qr1ETRAQPKI"],
+                    @[@"29_0",@"UberCuber",@9, @19, @6.9, @"Qr1ETRAQPKI"],
+                    @[@"34_0",@"UberCuber",@9, @30, @8.9, @"Qr1ETRAQPKI"],
+                    @[@"33_0",@"UberCuber",@9, @39, @6.4, @"Qr1ETRAQPKI"],
+                    @[@"31_0",@"UberCuber",@9, @46, @7.9, @"Qr1ETRAQPKI"],
+                    @[@"32_0",@"UberCuber",@9, @55, @6.9, @"Qr1ETRAQPKI"],
+                    @[@"56_0",@"UberCuber",@10, @5, @6.9, @"Qr1ETRAQPKI"],
+                    @[@"57_0",@"UberCuber",@10, @13, @5.5, @"Qr1ETRAQPKI"],
+                    @[@"54_0",@"Feliks Zemdegs",@0, @9, @9.3, @"IasVqtCHoj0"],
+                    @[@"55_0",@"Feliks Zemdegs",@0, @20, @7.4, @"IasVqtCHoj0"],
+                    @[@"49_0",@"Feliks Zemdegs",@0, @28, @11.6, @"IasVqtCHoj0"],
+                    @[@"50_0",@"Feliks Zemdegs",@0, @41, @10.5, @"IasVqtCHoj0"],
+                    @[@"52_0",@"Feliks Zemdegs",@0, @52, @6.1, @"IasVqtCHoj0"],
+                    @[@"53_0",@"Feliks Zemdegs",@0, @59, @8.1, @"IasVqtCHoj0"],
+                    @[@"51_0",@"Feliks Zemdegs",@1, @9, @14.7, @"IasVqtCHoj0"],
+                    @[@"_0",@"Feliks Zemdegs",@1, @39, @6.5, @"IasVqtCHoj0"]];
     
     
 OLLCase *oll;
@@ -371,20 +395,23 @@ Video *vid;
             
             if ([thisCase isEqualToString:oll.uid])
             {
-                alg = [NSEntityDescription insertNewObjectForEntityForName:@"Algorithm" inManagedObjectContext:self.managedObjectContext];
-                
-                alg.ollCase = oll;
-                alg.uid = algUid;
-                alg.algorithm = algData[1];
-                alg.rotations = algData[2];
-                
-                if (!oll.main)
-                    oll.main = alg;
-                
+                BOOL foundVid = NO;
                 for (NSArray *vidData in ollVids)
                 {
+                    NSLog(@"%@ @%@, ");
                     if ([compsString isEqualToString:vidData[0]])
                     {
+                        foundVid = YES;
+                        alg = [NSEntityDescription insertNewObjectForEntityForName:@"Algorithm" inManagedObjectContext:self.managedObjectContext];
+                        
+                        alg.ollCase = oll;
+                        alg.uid = algUid;
+                        alg.algorithm = algData[1];
+                        alg.rotations = algData[2];
+                        
+                        if (!oll.main)
+                            oll.main = alg;
+
                         vid = [NSEntityDescription insertNewObjectForEntityForName:@"Video" inManagedObjectContext:self.managedObjectContext];
                         
                         vid.algorithm = alg;
@@ -397,6 +424,20 @@ Video *vid;
                         vid.vidId = vidData[5];
                     }
                 }
+                
+                if (!foundVid)
+                {
+                    alg = [NSEntityDescription insertNewObjectForEntityForName:@"Algorithm" inManagedObjectContext:self.managedObjectContext];
+                    
+                    alg.ollCase = oll;
+                    alg.uid = algUid;
+                    alg.algorithm = algData[1];
+                    alg.rotations = algData[2];
+                    
+                    if (!oll.main)
+                        oll.main = alg;
+                }
+
             }
         }
 //        NSDictionary *algData = @{@"case": oll.uid,
@@ -423,21 +464,6 @@ Video *vid;
     [self chooseAll];
 }
 
-- (void)setLargeImageTo:(int)num
-{
-    
-    if ([selectedCases count] > num)
-    {
-        ollCase = selectedCases[num];
-        self.largeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", ollCase.uid]];
-        self.largeAlgorithmLabel.text = ollCase.main.algorithm;
-        self.largeAlgorithmLabel.adjustsFontSizeToFitWidth = YES;
-        
-        CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, .5 * M_PI * [ollCase.main.rotations integerValue]);
-        self.largeAlgorithmLabel.transform = transform;
-    }
-}
-
 - (void)chooseAll
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OLLCase"];
@@ -451,9 +477,8 @@ Video *vid;
     // Execute the fetch
     
     NSError *error = nil;
-    selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
+    self.selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    [self setLargeImageTo:0];
     [self.casesTable reloadData];
 }
 
@@ -472,11 +497,10 @@ Video *vid;
     // Execute the fetch
     
     NSError *error = nil;
-    selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
+    self.selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
     
     self.buttonsViewHeight.constant = 134;
 
-    [self setLargeImageTo:0];
     [self.casesTable reloadData];
 }
 
@@ -490,11 +514,11 @@ Video *vid;
         request.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
         
         NSError *error = nil;
-        selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
+        self.selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
         
         caseTypes = [[NSMutableArray alloc] init];
         
-        for (OLLCase *oll in selectedCases)
+        for (OLLCase *oll in self.selectedCases)
         {
             if (![oll.type isEqualToString:@""])
             {
@@ -525,7 +549,6 @@ Video *vid;
             }
         }
         
-        [self setLargeImageTo:0];
         [self.casesTable reloadData];
     }
     
@@ -540,11 +563,10 @@ Video *vid;
     request.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
     
     NSError *error = nil;
-    selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
+    self.selectedCases = [self.managedObjectContext executeFetchRequest:request error:&error];
     
     caseTypes = [[NSMutableArray alloc] init];
     
-    [self setLargeImageTo:0];
     [self.casesTable reloadData];
 }
     
@@ -632,13 +654,13 @@ Video *vid;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    return [selectedCases count];
+    return [self.selectedCases count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CaseCell"];
-    OLLCase *oll = selectedCases[indexPath.row];
+    OLLCase *oll = self.selectedCases[indexPath.row];
     
     cell.caseImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", oll.uid]];
     cell.caseImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -651,9 +673,11 @@ Video *vid;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self setLargeImageTo:(int)indexPath.row];
-    
-    if (!isIpad)
+    ollCase = self.selectedCases[indexPath.row];
+
+    if (isIpad)
+        caseView.ollCase = ollCase;
+    else
         [self performSegueWithIdentifier:@"toLargeImege" sender:self];
 
 }
@@ -664,7 +688,7 @@ Video *vid;
 {
     if ([segue.identifier isEqualToString:@"toLargeImege"])
     {
-        CaseViewController *caseView = segue.destinationViewController;
+        caseView = segue.destinationViewController;
         caseView.ollCase = ollCase;
     }
 }

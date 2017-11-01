@@ -2,8 +2,9 @@
 //  Algorithm+CoreDataProperties.h
 //  OLL Finder
 //
-//  Created by Andres Luis Sada Govela on 20/08/17.
+//  Created by Andres Luis Sada Govela on 31/10/17.
 //  Copyright © 2017 Andres Sada Govela. All rights reserved.
+//
 //
 
 #import "Algorithm+CoreDataClass.h"
@@ -15,20 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<Algorithm *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSNumber *rotations;
 @property (nullable, nonatomic, copy) NSString *algorithm;
+@property (nullable, nonatomic, copy) NSNumber *rotations;
 @property (nullable, nonatomic, copy) NSString *uid;
+@property (nullable, nonatomic, retain) OLLCase *mainOf;
 @property (nullable, nonatomic, retain) OLLCase *ollCase;
-@property (nullable, nonatomic, retain) NSSet<Video *> *videos;
-
-@end
-
-@interface Algorithm (CoreDataGeneratedAccessors)
-
-- (void)addVideosObject:(Video *)value;
-- (void)removeVideosObject:(Video *)value;
-- (void)addVideos:(NSSet<Video *> *)values;
-- (void)removeVideos:(NSSet<Video *> *)values;
+@property (nullable, nonatomic, retain) Video *video;
 
 @end
 

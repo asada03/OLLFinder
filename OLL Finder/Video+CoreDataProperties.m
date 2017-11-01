@@ -2,8 +2,9 @@
 //  Video+CoreDataProperties.m
 //  OLL Finder
 //
-//  Created by Andres Luis Sada Govela on 21/08/17.
+//  Created by Andres Luis Sada Govela on 31/10/17.
 //  Copyright © 2017 Andres Sada Govela. All rights reserved.
+//
 //
 
 #import "Video+CoreDataProperties.h"
@@ -15,9 +16,9 @@
 }
 
 @dynamic author;
+@dynamic duration;
 @dynamic start;
 @dynamic vidId;
-@dynamic duration;
 @dynamic algorithm;
 
 @end

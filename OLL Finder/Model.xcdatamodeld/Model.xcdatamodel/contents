@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Xcode 4.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Xcode 4.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Algorithm" representedClassName="Algorithm" syncable="YES">
         <attribute name="algorithm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rotations" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="mainOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OLLCase" inverseName="main" inverseEntity="OLLCase" syncable="YES"/>
         <relationship name="ollCase" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OLLCase" inverseName="algorithms" inverseEntity="OLLCase" syncable="YES"/>
-        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Video" inverseName="algorithm" inverseEntity="Video" syncable="YES"/>
+        <relationship name="video" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Video" inverseName="algorithm" inverseEntity="Video" syncable="YES"/>
     </entity>
     <entity name="OLLCase" representedClassName="OLLCase" syncable="YES">
         <attribute name="corners" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
@@ -21,11 +21,11 @@
         <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="vidId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="algorithm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Algorithm" inverseName="videos" inverseEntity="Algorithm" syncable="YES"/>
+        <relationship name="algorithm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Algorithm" inverseName="video" inverseEntity="Algorithm" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Algorithm" positionX="-243" positionY="36" width="128" height="133"/>
+        <element name="Algorithm" positionX="-234" positionY="27" width="128" height="133"/>
         <element name="OLLCase" positionX="-414" positionY="32" width="128" height="133"/>
-        <element name="Video" positionX="-74" positionY="41" width="128" height="120"/>
+        <element name="Video" positionX="-74" positionY="41" width="128" height="118"/>
     </elements>
 </model>

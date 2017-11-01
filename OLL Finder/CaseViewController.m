@@ -15,22 +15,46 @@
 {
     NSArray *currentAlgorithms;
     NSInteger selectedAlg;
+    Video *video;
+    CGFloat pvOriginalWidth, pvOriginalHeight;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *caseImageView;
 @property (weak, nonatomic) IBOutlet UILabel *algLabel;
 @property (weak, nonatomic) IBOutlet UITableView *algTable;
 @property (weak, nonatomic) IBOutlet PlayButton *playButton;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *authorTopConstraint;
 
 @end
 
 @implementation CaseViewController
 
+- (void)setOllCase:(OLLCase *)ollCase
+{
+    _ollCase = ollCase;
+    
+    NSLog(@"oll case:%@", ollCase.uid);
+    [self initImage];
+    [self.algTable reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if ([self.ollCase.algorithms count] == 1)
-        self.algTable.hidden = YES;
+//    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//    BOOL flag;
+//    NSError *setCategoryError = nil;
+//    flag = [audioSession setCategory:AVAudioSessionCategoryPlayback
+//                               error:&setCategoryError];
+    self.playerView.delegate = self;
+    
+    //self.algTable.backgroundColor = [UIColor clearColor];
+    pvOriginalWidth = self.playerViewWidth.constant;
+    pvOriginalHeight = self.playerViewHeight.constant;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,6 +76,7 @@
     self.caseImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.uid]];
     self.algLabel.text = alg.algorithm;
     self.algLabel.adjustsFontSizeToFitWidth = YES;
+    self.authorLabel.text = alg.video ? alg.video.author : @"";
     
     CGAffineTransform transform = CGAffineTransformRotate(CGAffineTransformIdentity, .5 * M_PI * [alg.rotations integerValue]);
     
@@ -59,14 +84,83 @@
         self.caseImageView.transform = transform;
     }];
     
-    self.playButton.hidden = ([alg.videos count] == 0);
+    self.playButton.hidden = alg.video;
     self.playButton.algorithm = alg;
+    [self setPlayerSizePlaying:NO];
+    
+    video = alg.video;
+    if (video)
+    {
+        NSDictionary *playersVars = @{@"playsinline" : @1,
+                                      @"autoplay" : @0,
+                                      @"showinfo" : @0,
+                                      };
+        
+        [self.playerView loadWithVideoId:video.vidId playerVars:playersVars];
+    }
 }
 
 - (void)initImage
 {
-    [self initImageWithAlg:self.ollCase.main animated:NO];
+    self.algTable.hidden = ([self.ollCase.algorithms count] == 1);
+
+    if (self.ollCase)
+        [self initImageWithAlg:self.ollCase.main animated:NO];
 }
+
+- (void) playerView:(YTPlayerView *)playerView didPlayTime:(float)playTime
+{
+    NSLog(@"Playtime:%f",playTime - [video.start floatValue]);
+    if (playTime < [video.start floatValue] ||
+        playTime > [video.start floatValue] + [video.duration floatValue])
+    {
+        NSLog(@"looping at:%f vs:%f", playTime - [video.start floatValue], [video.duration floatValue]);
+        [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+    }
+}
+
+//- (void) playerViewDidBecomeReady:(YTPlayerView *)playerView{
+//    
+//    [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+//}
+
+- (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
+    switch (state) {
+        case kYTPlayerStatePlaying:
+            [self setPlayerSizePlaying:YES];
+            [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+            break;
+        case kYTPlayerStatePaused:
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) setPlayerSizePlaying:(BOOL)playing
+{
+    [self.view layoutIfNeeded];
+    
+    if (playing)
+    {
+        self.playerViewWidth.constant = self.view.frame.size.width;
+        self.playerViewHeight.constant = self.playerViewWidth.constant * 9 / 16;
+        self.authorTopConstraint.constant = -(_authorLabel.frame.size.height);
+    }
+    else
+    {
+        self.playerViewWidth.constant = pvOriginalWidth;
+        self.playerViewHeight.constant = pvOriginalHeight;
+        self.authorTopConstraint.constant = 0;
+    }
+
+    [UIView animateWithDuration:.7
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
+
+}
+
 
 #pragma mark - Table view data source
 
@@ -93,7 +187,8 @@
     cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
     cell.rotations = [ollAlg.rotations integerValue];
     cell.isMain = [ollAlg isEqual:self.ollCase.main];
-    cell.hasVideo = [ollAlg.videos count] > 0;
+    cell.hasVideo = (ollAlg.video != nil);
+    cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
     cell.playButton.algorithm = ollAlg;
     return cell;
 }

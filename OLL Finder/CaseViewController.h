@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "OLLCase+CoreDataProperties.h"
 #import "Algorithm+CoreDataProperties.h"
+#import "Video+CoreDataProperties.h"
+#import "YTPlayerView.h"
 
-@interface CaseViewController : UIViewController
+@interface CaseViewController : UIViewController <YTPlayerViewDelegate>
 @property (weak, nonatomic) OLLCase *ollCase;
 
 @end

@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *algorithmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *algNumLabel;
 @property (weak, nonatomic) IBOutlet PlayButton *playButton;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 
 @property (nonatomic) NSInteger rotations;
 @property (nonatomic) BOOL isMain;

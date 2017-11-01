@@ -12,7 +12,6 @@
 
 @interface VideoViewController ()
 {
-    NSArray *videos;
     Video *video;
 }
 @property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
@@ -27,14 +26,12 @@
     
     self.playerView.delegate = self;
     
-    videos = [self.algorithm.videos allObjects];
-    video = videos[0];
     NSDictionary *playersVars = @{@"playsinline" : @0,
                                   @"autoplay" : @1,
                                   @"showinfo" : @0,
                                   };
     
-    [self.playerView loadWithVideoId:video.vidId playerVars:playersVars];
+    [self.playerView loadWithVideoId:self.algorithm.video.vidId playerVars:playersVars];
     
 }
 
