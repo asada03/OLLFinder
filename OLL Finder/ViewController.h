@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@import GoogleMobileAds;
+
+
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate, GADInterstitialDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

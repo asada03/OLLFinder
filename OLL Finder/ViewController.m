@@ -30,6 +30,8 @@
     OLLCase *ollCase;
     BOOL isIpad;
     BOOL viewAppeared;
+    
+    int numCasesViewed;
 }
 @property (strong, nonatomic) IBOutlet UITableView *casesTable;
 @property (strong, nonatomic) IBOutletCollection(ImageButton) NSArray *crossButtons;
@@ -38,8 +40,12 @@
 
 @property (weak, nonatomic) IBOutlet UIView *buttonsView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonsViewHeight;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerTrailingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerHeightConstraint;
 
 @property (strong, nonatomic) NSArray *selectedCases;
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -80,12 +86,33 @@
         self.casesTable.layer.shadowOpacity = .7f;
         self.casesTable.layer.shadowRadius = 4.0f;
     }
+    
+    self.bannerView.adUnitID = @"ca-app-pub-9875593345175318/5308705309";
+    self.bannerView.rootViewController = self;
+    self.bannerView.delegate = self;
+    GADRequest *request = [GADRequest request];
+    
+#warning remove
+    request.testDevices = @[ kGADSimulatorID,                       // All simulators
+                             @"515ea915fcd3eccfbad7e21041c3bffb" ]; // Sample device ID
+
+    [self.bannerView loadRequest:request];
+    
+    [self hideBanner];
+    
+    [self createAndLoadInterstitial];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
+    if (numCasesViewed == 3)
+    {
+        numCasesViewed = 0;
+        [self showInterstital];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -96,15 +123,8 @@
 
     if (!viewAppeared)
     {
-        for (ImageButton *button in self.crossButtons)
-            [button imageNormal];
-
-        for (ImageButton *button in self.cornerButtons)
-            [button imageDisabled];
-        
+        [self resetButtons];
         viewAppeared = YES;
-
-        self.buttonsViewHeight.constant = 72;
     }
     
     [self.casesTable reloadData];
@@ -474,6 +494,48 @@ Video *vid;
     [self start];
 }
 
+- (void)createAndLoadInterstitial {
+    self.interstitial = [[GADInterstitial alloc]
+                         initWithAdUnitID:@"ca-app-pub-9875593345175318/9560130874"];
+    GADRequest *request = [GADRequest request];
+#warning remove
+    request.testDevices = @[ kGADSimulatorID,                       // All simulators
+                              @"515ea915fcd3eccfbad7e21041c3bffb" ]; // Sample device ID
+    self.interstitial.delegate = self;
+    [self.interstitial loadRequest:request];
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    [self createAndLoadInterstitial];
+}
+- (void)showInterstital
+{
+    if (self.interstitial.isReady) {
+        [self.interstitial presentFromRootViewController:self];
+    } else {
+        NSLog(@"Ad wasn't ready");
+    }
+
+}
+- (void)hideBanner
+{
+    self.bannerTrailingConstraint.constant = - self.bannerHeightConstraint.constant;
+}
+
+- (void)resetButtons
+{
+    selectedCross = [NSNumber numberWithInteger:-1];
+    for (ImageButton *button in self.crossButtons)
+        [button imageNormal];
+    
+    for (ImageButton *button in self.cornerButtons)
+        [button imageHidden];
+    
+    for (ImageButton *button in self.typeButtons)
+        [button imageHidden];
+
+    self.buttonsViewHeight.constant = 72;
+}
 - (void)start
 {
     [self chooseAll];
@@ -597,26 +659,35 @@ Video *vid;
 #pragma mark - button actions
 - (IBAction)crossAction:(UIButton *)sender
 {
-    selectedCross = [NSNumber numberWithInteger:sender.tag];
-    
-    for (ImageButton *button in self.crossButtons)
+    if ([selectedCross integerValue] == sender.tag)
     {
-        if (button.tag == sender.tag)
-        {
-            [button imageSelected];
-        }
-        else
-        {
-            [button imageNotSelected];
-        }
+        //reset cross
+        [self resetButtons];
+        [self start];
     }
-    for (ImageButton *button in self.cornerButtons)
+    else
     {
-        [button imageNormal];
+        selectedCross = [NSNumber numberWithInteger:sender.tag];
+        
+        for (ImageButton *button in self.crossButtons)
+        {
+            if (button.tag == sender.tag)
+            {
+                [button imageSelected];
+            }
+            else
+            {
+                [button imageNotSelected];
+            }
+        }
+        for (ImageButton *button in self.cornerButtons)
+        {
+            [button imageNormal];
+        }
+
+        [self chooseCross];
+        [self cleanTypes];
     }
-    
-    [self chooseCross];
-    [self cleanTypes];
 }
 
 - (IBAction)cornerAction:(UIButton *)sender
@@ -689,12 +760,12 @@ Video *vid;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ollCase = self.selectedCases[indexPath.row];
+    numCasesViewed++;
 
     if (isIpad)
         caseView.ollCase = ollCase;
     else
         [self performSegueWithIdentifier:@"toLargeImege" sender:self];
-
 }
 
 
@@ -708,5 +779,11 @@ Video *vid;
     }
 }
 
+#pragma mark - GADBannerViewDelegate
 
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    [UIView animateWithDuration:2.0 animations:^{
+        self.bannerTrailingConstraint.constant = 0;
+    }];
+}
 @end

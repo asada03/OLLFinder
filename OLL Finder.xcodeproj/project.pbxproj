@@ -27,6 +27,7 @@
 		411E49741ED7EF3000466992 /* ollcrossed.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496B1ED7EF3000466992 /* ollcrossed.png */; };
 		411E49751ED7EF3000466992 /* ollcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496C1ED7EF3000466992 /* ollcenter.png */; };
 		4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121C34D1EE23DAA005B5AAB /* CaseViewController.m */; };
+		413EF6841FB0C1F300939536 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413EF6831FB0C1F200939536 /* GoogleMobileAds.framework */; };
 		41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160A1F49C639005F71F4 /* FirebaseCore.framework */; };
 		41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */; };
 		41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */; };
@@ -148,6 +149,7 @@
 		411E496C1ED7EF3000466992 /* ollcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollcenter.png; sourceTree = "<group>"; };
 		4121C34C1EE23DAA005B5AAB /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
 		4121C34D1EE23DAA005B5AAB /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
+		413EF6831FB0C1F200939536 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		41C816081F49C19E005F71F4 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		41C8160A1F49C639005F71F4 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413EF6841FB0C1F300939536 /* GoogleMobileAds.framework in Frameworks */,
 				41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */,
 				41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */,
 				41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */,
@@ -281,6 +284,7 @@
 		41C815FD1F49BD51005F71F4 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				413EF6831FB0C1F200939536 /* GoogleMobileAds.framework */,
 				41C816151F49C7AB005F71F4 /* FirebaseAnalytics.framework */,
 				41C816111F49C649005F71F4 /* FirebaseDatabase.framework */,
 				41C8160A1F49C639005F71F4 /* FirebaseCore.framework */,

@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-hC-fcM">
-                                <rect key="frame" x="0.0" y="192" width="320" height="312"/>
+                                <rect key="frame" x="0.0" y="192" width="320" height="262"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="CaseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CaseCell" rowHeight="68" id="VjK-yi-nRU" customClass="CaseTableViewCell">
@@ -298,14 +298,24 @@
                                     <constraint firstAttribute="trailing" secondItem="jvE-x6-Gnk" secondAttribute="centerX" multiplier="5:4" id="wMH-oB-Xk3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q5-hQ-lhy" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="454" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="68C-eH-qI6"/>
+                                    <constraint firstAttribute="width" constant="320" id="U7u-jB-0eu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.44810267857142855" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="8my-xI-YwV" firstAttribute="top" secondItem="0Q5-hQ-lhy" secondAttribute="bottom" id="5BC-lx-stw"/>
+                            <constraint firstItem="0Q5-hQ-lhy" firstAttribute="centerX" secondItem="N0x-Wv-iOt" secondAttribute="centerX" id="8n7-zg-D0a"/>
                             <constraint firstItem="L5E-6H-TjQ" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="9Zf-CV-rCu"/>
                             <constraint firstItem="jDp-hC-fcM" firstAttribute="top" secondItem="L5E-6H-TjQ" secondAttribute="bottom" id="Ekq-DB-bUV"/>
                             <constraint firstAttribute="trailing" secondItem="L5E-6H-TjQ" secondAttribute="trailing" id="MBK-Pf-Dq6"/>
                             <constraint firstAttribute="trailing" secondItem="jDp-hC-fcM" secondAttribute="trailing" id="U1W-Bw-BEV"/>
-                            <constraint firstItem="8my-xI-YwV" firstAttribute="top" secondItem="jDp-hC-fcM" secondAttribute="bottom" id="ZDo-bK-9gc"/>
+                            <constraint firstItem="0Q5-hQ-lhy" firstAttribute="top" secondItem="jDp-hC-fcM" secondAttribute="bottom" id="ZrC-ws-lza"/>
                             <constraint firstItem="L5E-6H-TjQ" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="egp-Nq-pei"/>
                             <constraint firstItem="jDp-hC-fcM" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="ndh-gd-8ZA"/>
                         </constraints>
@@ -313,6 +323,9 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="ZB6-w7-tdj"/>
                     <connections>
+                        <outlet property="bannerHeightConstraint" destination="68C-eH-qI6" id="qrh-gz-yoK"/>
+                        <outlet property="bannerTrailingConstraint" destination="5BC-lx-stw" id="J8N-Jg-Agd"/>
+                        <outlet property="bannerView" destination="0Q5-hQ-lhy" id="CAN-Cn-4ck"/>
                         <outlet property="buttonsView" destination="L5E-6H-TjQ" id="AKJ-Az-usc"/>
                         <outlet property="buttonsViewHeight" destination="dWy-x9-Mvo" id="w4u-Aj-mmi"/>
                         <outlet property="casesTable" destination="jDp-hC-fcM" id="9a6-kA-8YT"/>

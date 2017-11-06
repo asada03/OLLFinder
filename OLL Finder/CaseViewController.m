@@ -114,7 +114,6 @@
 
 - (void) playerView:(YTPlayerView *)playerView didPlayTime:(float)playTime
 {
-    NSLog(@"Playtime:%f",playTime - [video.start floatValue]);
     if (playTime < [video.start floatValue] ||
         playTime > [video.start floatValue] + [video.duration floatValue])
     {
