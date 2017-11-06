@@ -86,7 +86,7 @@
     
     self.playButton.hidden = alg.video;
     self.playButton.algorithm = alg;
-    [self setPlayerSizePlaying:NO];
+    [self setPlayerSize:2];
     
     video = alg.video;
     if (video)
@@ -97,6 +97,10 @@
                                       };
         
         [self.playerView loadWithVideoId:video.vidId playerVars:playersVars];
+    }
+    else
+    {
+        [self setPlayerSize:0];
     }
 }
 
@@ -127,7 +131,7 @@
 - (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
     switch (state) {
         case kYTPlayerStatePlaying:
-            [self setPlayerSizePlaying:YES];
+            [self setPlayerSize:1];
             [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
             break;
         case kYTPlayerStatePaused:
@@ -137,26 +141,41 @@
     }
 }
 
-- (void) setPlayerSizePlaying:(BOOL)playing
+- (void) setPlayerSize:(int)type
 {
     [self.view layoutIfNeeded];
     
-    if (playing)
-    {
-        self.playerViewWidth.constant = self.view.frame.size.width;
-        self.playerViewHeight.constant = self.playerViewWidth.constant * 9 / 16;
-        self.authorTopConstraint.constant = -(_authorLabel.frame.size.height);
-    }
-    else
-    {
-        self.playerViewWidth.constant = pvOriginalWidth;
-        self.playerViewHeight.constant = pvOriginalHeight;
-        self.authorTopConstraint.constant = 0;
+    switch (type) {
+        case 0:
+            self.playerViewHeight.constant = 0;
+            self.playerView.hidden = YES;
+            break;
+            
+        case 1:
+            self.playerViewWidth.constant = self.view.frame.size.width;
+            self.playerViewHeight.constant = self.playerViewWidth.constant * 9 / 16;
+            self.authorTopConstraint.constant = -(_authorLabel.frame.size.height);
+            self.playerView.hidden = NO;
+            break;
+            
+        case 2:
+            self.playerViewWidth.constant = pvOriginalWidth;
+            self.playerViewHeight.constant = pvOriginalHeight;
+            self.authorTopConstraint.constant = 0;
+            self.playerView.hidden = NO;
+            break;
+            
+        default:
+            break;
     }
 
+    self.authorLabel.hidden = YES;
     [UIView animateWithDuration:.7
                      animations:^{
-                         [self.view layoutIfNeeded]; // Called on parent view
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished){
+                         self.authorLabel.hidden = NO;
                      }];
 
 }
@@ -206,6 +225,7 @@
         [self initImageWithAlg:currentAlgorithms[indexPath.row] animated:YES];
     }
     selectedAlg = indexPath.row;
+    [self.playerView stopVideo];
 }
 
 #pragma mark - Navigation
