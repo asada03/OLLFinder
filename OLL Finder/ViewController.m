@@ -797,6 +797,8 @@ Video *vid;
 #pragma mark - GADBannerViewDelegate
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    [self.view layoutIfNeeded];
+    
     [UIView animateWithDuration:2.0 animations:^{
         self.bannerTrailingConstraint.constant = 0;
     }];

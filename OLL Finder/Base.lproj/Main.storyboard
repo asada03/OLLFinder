@@ -25,13 +25,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMM-Mg-ZGS">
-                                <rect key="frame" x="381" y="0.0" width="387" height="1024"/>
+                                <rect key="frame" x="381" y="0.0" width="387" height="934"/>
                                 <connections>
                                     <segue destination="f8C-4y-Nmc" kind="embed" identifier="toLargeImege" id="Hf1-ZH-UrF"/>
                                 </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-Zq-05i">
-                                <rect key="frame" x="0.0" y="212" width="380" height="712"/>
+                                <rect key="frame" x="0.0" y="212" width="380" height="722"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="380" id="JsI-Gc-RAD"/>
@@ -289,34 +289,34 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-GI-nsI" customClass="GADBannerView">
-                                <rect key="frame" x="30" y="924" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="934" width="768" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="1zL-H6-H0g"/>
-                                    <constraint firstAttribute="height" constant="100" id="Pv5-pB-Q9j"/>
+                                    <constraint firstAttribute="height" constant="90" id="MCi-tf-oIh"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.44810267860000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="IgC-GI-nsI" firstAttribute="top" secondItem="bNF-Zq-05i" secondAttribute="bottom" id="17O-Dq-P3B"/>
                             <constraint firstItem="fMM-Mg-ZGS" firstAttribute="leading" secondItem="9oo-Ft-tgA" secondAttribute="trailing" constant="1" id="1F1-hc-EUu"/>
                             <constraint firstItem="9oo-Ft-tgA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="3yH-Vv-VIY"/>
                             <constraint firstItem="9oo-Ft-tgA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4g5-8e-G12"/>
+                            <constraint firstItem="IgC-GI-nsI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Px-lX-jyj"/>
+                            <constraint firstItem="IgC-GI-nsI" firstAttribute="top" secondItem="fMM-Mg-ZGS" secondAttribute="bottom" id="7rH-B7-t2h"/>
                             <constraint firstItem="bNF-Zq-05i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QTt-xz-pYr"/>
                             <constraint firstItem="bNF-Zq-05i" firstAttribute="top" secondItem="9oo-Ft-tgA" secondAttribute="bottom" id="SNs-ZH-TcV"/>
-                            <constraint firstItem="IgC-GI-nsI" firstAttribute="top" secondItem="bNF-Zq-05i" secondAttribute="bottom" id="Txe-Rm-qZa"/>
-                            <constraint firstItem="IgC-GI-nsI" firstAttribute="centerX" secondItem="bNF-Zq-05i" secondAttribute="centerX" id="X1V-pI-TNM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IgC-GI-nsI" secondAttribute="bottom" id="ZNV-fa-CsS"/>
                             <constraint firstItem="fMM-Mg-ZGS" firstAttribute="leading" secondItem="bNF-Zq-05i" secondAttribute="trailing" constant="1" id="ZkX-ke-eO9"/>
                             <constraint firstAttribute="trailing" secondItem="fMM-Mg-ZGS" secondAttribute="trailing" id="hRp-3d-TBU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMM-Mg-ZGS" secondAttribute="bottom" id="k5X-j4-xtd"/>
+                            <constraint firstAttribute="trailing" secondItem="IgC-GI-nsI" secondAttribute="trailing" id="s0M-lz-ZBs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IgC-GI-nsI" secondAttribute="bottom" id="wAl-83-SE4"/>
                             <constraint firstItem="fMM-Mg-ZGS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xla-cq-Xcz"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="bannerHeightConstraint" destination="Pv5-pB-Q9j" id="e6c-XE-WBF"/>
-                        <outlet property="bannerTrailingConstraint" destination="ZNV-fa-CsS" id="SAR-SJ-95B"/>
+                        <outlet property="bannerHeightConstraint" destination="MCi-tf-oIh" id="Q2z-2P-y6l"/>
+                        <outlet property="bannerTrailingConstraint" destination="wAl-83-SE4" id="Bmp-Xn-woB"/>
                         <outlet property="bannerView" destination="IgC-GI-nsI" id="9d4-Ss-axs"/>
                         <outlet property="buttonsView" destination="9oo-Ft-tgA" id="LAz-xO-jvD"/>
                         <outlet property="buttonsViewHeight" destination="Ef3-of-JHW" id="b9N-mU-DYd"/>
@@ -348,7 +348,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pmd-Xw-1tY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y75-Jb-YAa">
-                        <rect key="frame" x="0.0" y="0.0" width="387" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="387" height="934"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oll1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Udf-qE-aCb">
@@ -359,7 +359,7 @@
                                 </constraints>
                             </imageView>
                             <tableView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4pa-ig-Cr0">
-                                <rect key="frame" x="0.0" y="349" width="387" height="675"/>
+                                <rect key="frame" x="0.0" y="349" width="387" height="585"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="387" id="bbF-8Z-3RC"/>
