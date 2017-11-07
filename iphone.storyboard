@@ -302,7 +302,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="68C-eH-qI6"/>
-                                    <constraint firstAttribute="width" constant="320" id="U7u-jB-0eu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -313,9 +312,11 @@
                             <constraint firstItem="L5E-6H-TjQ" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="9Zf-CV-rCu"/>
                             <constraint firstItem="jDp-hC-fcM" firstAttribute="top" secondItem="L5E-6H-TjQ" secondAttribute="bottom" id="Ekq-DB-bUV"/>
                             <constraint firstAttribute="trailing" secondItem="L5E-6H-TjQ" secondAttribute="trailing" id="MBK-Pf-Dq6"/>
+                            <constraint firstAttribute="trailing" secondItem="0Q5-hQ-lhy" secondAttribute="trailing" id="O4T-LV-DDn"/>
                             <constraint firstAttribute="trailing" secondItem="jDp-hC-fcM" secondAttribute="trailing" id="U1W-Bw-BEV"/>
                             <constraint firstItem="0Q5-hQ-lhy" firstAttribute="top" secondItem="jDp-hC-fcM" secondAttribute="bottom" id="ZrC-ws-lza"/>
                             <constraint firstItem="L5E-6H-TjQ" firstAttribute="top" secondItem="Gdq-Gp-dgW" secondAttribute="bottom" id="egp-Nq-pei"/>
+                            <constraint firstItem="0Q5-hQ-lhy" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="iF4-OC-1iq"/>
                             <constraint firstItem="jDp-hC-fcM" firstAttribute="leading" secondItem="N0x-Wv-iOt" secondAttribute="leading" id="ndh-gd-8ZA"/>
                         </constraints>
                     </view>

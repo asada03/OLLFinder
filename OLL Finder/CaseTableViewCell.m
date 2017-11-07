@@ -52,7 +52,7 @@
 {
     _hasVideo = hasVideo;
     
-    defaultVideoWidth = MAX (defaultVideoWidth, self.starWidthConstraint.constant);
+    defaultVideoWidth = MAX (defaultVideoWidth, self.playerWidthConstraint.constant);
     self.playerWidthConstraint.constant = hasVideo ? defaultVideoWidth : 0;
 }
 @end
