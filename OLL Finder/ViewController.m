@@ -68,9 +68,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    version = @"1.10";
+    version = @"2.0";
     if (!self.managedObjectContext)
         [self useModelDocument];
+    
+    numCasesViewed = [[UICKeyChainStore stringForKey:@"numCasesViewed"] intValue];
     
     isIpad = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad );
     
@@ -108,10 +110,14 @@
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     
-    if (numCasesViewed == 3)
+    if (numCasesViewed > 14 && numCasesViewed % 3 == 0)
     {
-        numCasesViewed = 0;
         [self showInterstital];
+        NSLog(@"Showing on %d", numCasesViewed);
+    }
+    else
+    {
+        NSLog(@"not showing on %d", numCasesViewed);
     }
 }
 
@@ -761,6 +767,8 @@ Video *vid;
 {
     ollCase = self.selectedCases[indexPath.row];
     numCasesViewed++;
+    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d",numCasesViewed] forKey:@"numCasesViewed"];
+
 
     if (isIpad)
         caseView.ollCase = ollCase;
