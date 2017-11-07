@@ -17,6 +17,7 @@
     Video *video;
     CGFloat pvOriginalWidth, pvOriginalHeight;
     BOOL viewLoaded;
+    BOOL playerLarge;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *caseImageView;
 @property (weak, nonatomic) IBOutlet UILabel *algLabel;
@@ -162,6 +163,7 @@
             self.playerViewHeight.constant = self.playerViewWidth.constant * 9 / 16;
             self.authorTopConstraint.constant = -(_authorLabel.frame.size.height);
             self.playerView.hidden = NO;
+            playerLarge = YES;
             break;
             
         case 2:
@@ -169,6 +171,7 @@
             self.playerViewHeight.constant = pvOriginalHeight;
             self.authorTopConstraint.constant = 0;
             self.playerView.hidden = NO;
+            playerLarge = NO;
             break;
             
         default:
@@ -212,6 +215,7 @@
     cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
     cell.rotations = [ollAlg.rotations integerValue];
     cell.isMain = [ollAlg isEqual:self.ollCase.main];
+    if (cell.isMain) selectedAlg = indexPath.row;
     cell.hasVideo = (ollAlg.video != nil);
     cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
     return cell;
@@ -222,8 +226,10 @@
     if (selectedAlg == indexPath.row)
     {
         self.ollCase.main = currentAlgorithms[indexPath.row];
-        [self initImage];
+        if (playerLarge) [self initImage];
         [self.algTable reloadData];
+        [self.delegate mainAlgChanged];
+
     }
     else
     {

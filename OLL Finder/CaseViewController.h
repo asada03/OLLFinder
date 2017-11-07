@@ -12,7 +12,16 @@
 #import "Video+CoreDataProperties.h"
 #import "YTPlayerView.h"
 
+@protocol CaseVCDelegate <NSObject>
+
+// Called when the peripheral receives a new subscriber.
+- (void) mainAlgChanged;
+
+@end
+
 @interface CaseViewController : UIViewController <YTPlayerViewDelegate>
 @property (weak, nonatomic) OLLCase *ollCase;
+
+@property(nonatomic, assign) id<CaseVCDelegate> delegate;
 
 @end

@@ -12,7 +12,6 @@
 #import "Video+CoreDataProperties.h"
 #import "Video+CoreDataProperties.h"
 #import "CaseTableViewCell.h"
-#import "CaseViewController.h"
 #import "ImageButton.h"
 #import "UICKeyChainStore.h"
 #import "Firebase.h"
@@ -125,8 +124,6 @@
         [self resetButtons];
         viewAppeared = YES;
     }
-    
-    [self.casesTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -774,6 +771,7 @@ Video *vid;
     if (isIpad)
     {
         caseView.ollCase = ollCase;
+        caseView.delegate = self;
         
         [self showInterstital];
     }
@@ -790,8 +788,15 @@ Video *vid;
     if ([segue.identifier isEqualToString:@"toLargeImege"])
     {
         caseView = segue.destinationViewController;
+        caseView.delegate = self;
         caseView.ollCase = ollCase;
     }
+}
+
+#pragma mark - CaseVCDelegate
+
+- (void)mainAlgChanged{
+    [self.casesTable reloadData];
 }
 
 #pragma mark - GADBannerViewDelegate

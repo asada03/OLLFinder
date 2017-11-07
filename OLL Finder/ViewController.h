@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CaseViewController.h"
 
 @import GoogleMobileAds;
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate, GADInterstitialDelegate>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate, GADInterstitialDelegate, CaseVCDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
