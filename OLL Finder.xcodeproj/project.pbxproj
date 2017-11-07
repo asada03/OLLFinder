@@ -42,7 +42,6 @@
 		41C816281F49EF97005F71F4 /* Algorithm+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */; };
 		41C8162C1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8162B1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png */; };
 		41C8162E1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C8162D1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png */; };
-		41C816311F4B9670005F71F4 /* PlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816301F4B9670005F71F4 /* PlayButton.m */; };
 		41C816341F4B99CE005F71F4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816331F4B99CE005F71F4 /* VideoViewController.m */; };
 		41C816381F4B9A41005F71F4 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C816371F4B9A41005F71F4 /* YTPlayerView.m */; };
 		41C8163A1F4B9A50005F71F4 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 41C816391F4B9A50005F71F4 /* Assets.bundle */; };
@@ -171,8 +170,6 @@
 		41C816221F49EF97005F71F4 /* Algorithm+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Algorithm+CoreDataProperties.m"; sourceTree = "<group>"; };
 		41C8162B1F4B8EC5005F71F4 /* YouTube-icon-full_color small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YouTube-icon-full_color small.png"; sourceTree = "<group>"; };
 		41C8162D1F4B8FB0005F71F4 /* YouTube-icon-full_color medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YouTube-icon-full_color medium.png"; sourceTree = "<group>"; };
-		41C8162F1F4B9670005F71F4 /* PlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayButton.h; sourceTree = "<group>"; };
-		41C816301F4B9670005F71F4 /* PlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayButton.m; sourceTree = "<group>"; };
 		41C816321F4B99CE005F71F4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		41C816331F4B99CE005F71F4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		41C816361F4B9A41005F71F4 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
@@ -344,8 +341,6 @@
 				41C816331F4B99CE005F71F4 /* VideoViewController.m */,
 				773CF2931AA2DACB009290DF /* Main.storyboard */,
 				41EE46DC1AA372CA002AC26D /* iphone.storyboard */,
-				41C8162F1F4B9670005F71F4 /* PlayButton.h */,
-				41C816301F4B9670005F71F4 /* PlayButton.m */,
 				41C816081F49C19E005F71F4 /* Firebase.h */,
 				41C816131F49C689005F71F4 /* GoogleService-Info.plist */,
 				773CF2961AA2DACB009290DF /* Images.xcassets */,
@@ -675,7 +670,6 @@
 				41C816241F49EF97005F71F4 /* Video+CoreDataProperties.m in Sources */,
 				775BE74D1AA2F6D2000E3A9D /* CaseTableViewCell.m in Sources */,
 				773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */,
-				41C816311F4B9670005F71F4 /* PlayButton.m in Sources */,
 				41C816261F49EF97005F71F4 /* OLLCase+CoreDataProperties.m in Sources */,
 				4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */,
 				7731C4711EE44CA500A5147D /* ImageButton.m in Sources */,

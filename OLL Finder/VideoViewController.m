@@ -53,10 +53,10 @@
         [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
     }
 }
-- (IBAction)speedAction:(UIButton *)sender {
-    [self.playerView setPlaybackRate:.25];
-    [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
-}
+//- (IBAction)speedAction:(UIButton *)sender {
+//    [self.playerView setPlaybackRate:.25];
+//    [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+//}
 
 /*
 #pragma mark - Navigation

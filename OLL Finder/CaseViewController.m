@@ -8,7 +8,6 @@
 
 #import "CaseViewController.h"
 #import "CaseTableViewCell.h"
-#import "PlayButton.h"
 #import "VideoViewController.h"
 
 @interface CaseViewController ()
@@ -17,11 +16,12 @@
     NSInteger selectedAlg;
     Video *video;
     CGFloat pvOriginalWidth, pvOriginalHeight;
+    BOOL viewLoaded;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *caseImageView;
 @property (weak, nonatomic) IBOutlet UILabel *algLabel;
 @property (weak, nonatomic) IBOutlet UITableView *algTable;
-@property (weak, nonatomic) IBOutlet PlayButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerViewHeight;
@@ -37,7 +37,9 @@
     _ollCase = ollCase;
     
     NSLog(@"oll case:%@", ollCase.uid);
-    [self initImage];
+    
+    if (viewLoaded)
+        [self initImage];
     [self.algTable reloadData];
 }
 
@@ -63,7 +65,7 @@
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 
     [self initImage];
-
+    viewLoaded = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,11 +86,13 @@
         self.caseImageView.transform = transform;
     }];
     
-    self.playButton.hidden = alg.video;
-    self.playButton.algorithm = alg;
+    [self.playerView stopVideo];
+    
+    self.videoPlayButton.hidden = YES;
     [self setPlayerSize:2];
     
     video = alg.video;
+    NSLog(@"Adding video:%@", video);
     if (video)
     {
         NSDictionary *playersVars = @{@"playsinline" : @1,
@@ -96,11 +100,13 @@
                                       @"showinfo" : @0,
                                       };
         
+        NSLog(@"Will load vide:%@",video);
         [self.playerView loadWithVideoId:video.vidId playerVars:playersVars];
     }
     else
     {
         [self setPlayerSize:0];
+        self.videoPlayButton.hidden = YES;
     }
 }
 
@@ -122,10 +128,11 @@
     }
 }
 
-//- (void) playerViewDidBecomeReady:(YTPlayerView *)playerView{
-//    
-//    [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
-//}
+- (void) playerViewDidBecomeReady:(YTPlayerView *)playerView{
+    self.videoPlayButton.hidden = NO;
+    self.playerView.hidden = YES;
+    //[self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+}
 
 - (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
     switch (state) {
@@ -207,7 +214,6 @@
     cell.isMain = [ollAlg isEqual:self.ollCase.main];
     cell.hasVideo = (ollAlg.video != nil);
     cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
-    cell.playButton.algorithm = ollAlg;
     return cell;
 }
 
@@ -230,15 +236,18 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"toVideoView"])
-    {
-        VideoViewController *videoView = segue.destinationViewController;
-        PlayButton *button = sender;
-        
-        videoView.algorithm = button.algorithm;
-    }
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"toVideoView"])
+//    {
+//    }
+//
+//}
 
+#pragma mark - Actions
+
+- (IBAction)playButtonPressed:(UIButton *)sender {
+    [self.playerView playVideo];
+    self.videoPlayButton.hidden = YES;
+    self.playerView.hidden = NO;
 }
-
 @end

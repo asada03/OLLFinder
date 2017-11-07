@@ -95,8 +95,9 @@
     GADRequest *request = [GADRequest request];
     
 #warning remove
-    request.testDevices = @[ kGADSimulatorID,                       // All simulators
-                             @"515ea915fcd3eccfbad7e21041c3bffb" ]; // Sample device ID
+    request.testDevices = @[ kGADSimulatorID,            // All simulators
+                             @"515ea915fcd3eccfbad7e21041c3bffb",
+                             @"f930daf8742bd0b6d7ee35788403872e" ]; // Sample device ID
 
     [self.bannerView loadRequest:request];
     
@@ -110,15 +111,7 @@
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
     
-    if (numCasesViewed > 14 && numCasesViewed % 3 == 0)
-    {
-        [self showInterstital];
-        NSLog(@"Showing on %d", numCasesViewed);
-    }
-    else
-    {
-        NSLog(@"not showing on %d", numCasesViewed);
-    }
+    [self showInterstital];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -139,6 +132,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self createAndLoadInterstitial];
 }
 
 - (void)useModelDocument
@@ -366,7 +363,7 @@ NSArray *ollVids =@[@[@"55_0",@"UberCuber",@39, @6, @"Qr1ETRAQPKI"],
                     @[@"41_0",@"UberCuber",@358, @6.2, @"Qr1ETRAQPKI"],
                     @[@"42_0",@"UberCuber",@365, @6.5, @"Qr1ETRAQPKI"],
                     @[@"11_0",@"UberCuber",@377, @5.4, @"Qr1ETRAQPKI"],
-                    @[@"12_0",@"UberCuber",@385, @6.7, @"Qr1ETRAQPKI"],
+                    @[@"12_0",@"UberCuber",@385, @7, @"Qr1ETRAQPKI"],
                     @[@"9_0",@"UberCuber",@394, @7.4, @"Qr1ETRAQPKI"],
                     @[@"10_0",@"UberCuber",@402, @6.5, @"Qr1ETRAQPKI"],
                     @[@"25_0",@"UberCuber",@415, @7.9, @"Qr1ETRAQPKI"],
@@ -505,8 +502,10 @@ Video *vid;
                          initWithAdUnitID:@"ca-app-pub-9875593345175318/9560130874"];
     GADRequest *request = [GADRequest request];
 #warning remove
-    request.testDevices = @[ kGADSimulatorID,                       // All simulators
-                              @"515ea915fcd3eccfbad7e21041c3bffb" ]; // Sample device ID
+    request.testDevices = @[ kGADSimulatorID,            // All simulators
+                             @"515ea915fcd3eccfbad7e21041c3bffb",
+                             @"f930daf8742bd0b6d7ee35788403872e" ]; // Sample device ID
+
     self.interstitial.delegate = self;
     [self.interstitial loadRequest:request];
 }
@@ -516,12 +515,14 @@ Video *vid;
 }
 - (void)showInterstital
 {
-    if (self.interstitial.isReady) {
-        [self.interstitial presentFromRootViewController:self];
-    } else {
-        NSLog(@"Ad wasn't ready");
+    if (numCasesViewed > 14 && numCasesViewed % 3 == 0)
+    {
+        if (self.interstitial.isReady) {
+            [self.interstitial presentFromRootViewController:self];
+        } else {
+            NSLog(@"Ad wasn't ready");
+        }
     }
-
 }
 - (void)hideBanner
 {
@@ -771,9 +772,15 @@ Video *vid;
 
 
     if (isIpad)
+    {
         caseView.ollCase = ollCase;
+        
+        [self showInterstital];
+    }
     else
+    {
         [self performSegueWithIdentifier:@"toLargeImege" sender:self];
+    }
 }
 
 
