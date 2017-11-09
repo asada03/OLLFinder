@@ -37,8 +37,14 @@
 {
     _ollCase = ollCase;
     
-    NSLog(@"oll case:%@", ollCase.uid);
+    NSArray *algs = [_ollCase.algorithms allObjects];
     
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"uid"
+                                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortByName];
+    currentAlgorithms = [algs sortedArrayUsingDescriptors:sortDescriptors];
+
+    selectedAlg = -1;
     if (viewLoaded)
         [self initImage];
     [self.algTable reloadData];
@@ -93,7 +99,6 @@
     [self setPlayerSize:2];
     
     video = alg.video;
-    NSLog(@"Adding video:%@", video);
     if (video)
     {
         NSDictionary *playersVars = @{@"playsinline" : @1,
@@ -101,7 +106,6 @@
                                       @"showinfo" : @0,
                                       };
         
-        NSLog(@"Will load vide:%@",video);
         [self.playerView loadWithVideoId:video.vidId playerVars:playersVars];
     }
     else
@@ -124,7 +128,6 @@
     if (playTime < [video.start floatValue] ||
         playTime > [video.start floatValue] + [video.duration floatValue])
     {
-        NSLog(@"looping at:%f vs:%f", playTime - [video.start floatValue], [video.duration floatValue]);
         [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
     }
 }
@@ -139,7 +142,7 @@
     switch (state) {
         case kYTPlayerStatePlaying:
             [self setPlayerSize:1];
-            [self.playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
+            [playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
             break;
         case kYTPlayerStatePaused:
             break;
@@ -200,7 +203,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    currentAlgorithms = [self.ollCase.algorithms allObjects];
     return [currentAlgorithms count];
 }
 
@@ -219,6 +221,13 @@
     cell.hasVideo = (ollAlg.video != nil);
     cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (selectedAlg == indexPath.row) {
+        [self.algTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

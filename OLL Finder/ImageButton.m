@@ -79,7 +79,6 @@
 
 -(void) imageNormal
 {
-    NSLog(@"normal %d w:%f h:%f", (int)self.tag, originalWidth, originalHeight);
     self.alpha = 1;
     self.heightConstraint.constant = originalHeight;
     self.widthConstraint.constant = originalWidth;
