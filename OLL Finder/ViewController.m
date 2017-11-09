@@ -16,6 +16,12 @@
 #import "UICKeyChainStore.h"
 #import "Firebase.h"
 
+//#define testing
+
+#ifdef testing
+#warning hide alg number in storyboard
+#endif
+
 @interface ViewController ()
 {
     FIRDatabaseReference *firebaseRootRef;
@@ -66,7 +72,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     version = @"2.0";
     if (!self.managedObjectContext)
         [self useModelDocument];
@@ -93,10 +98,13 @@
     self.bannerView.delegate = self;
     GADRequest *request = [GADRequest request];
     
+#ifdef testing
 #warning remove
     request.testDevices = @[ kGADSimulatorID,            // All simulators
                              @"515ea915fcd3eccfbad7e21041c3bffb",
                              @"f930daf8742bd0b6d7ee35788403872e" ]; // Sample device ID
+#endif
+
 
     [self.bannerView loadRequest:request];
     
@@ -141,10 +149,14 @@
     url = [url URLByAppendingPathComponent:@"Cases Data"];
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
-    #warning Remember to fix this.
+#ifdef testing
+#warning Remember to fix this.
+    
     if (YES)
-//        ![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
-//        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
+#else
+    if (![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
+        [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
+#endif
     {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:[url path] error:&error];
@@ -260,13 +272,15 @@
      @[@"11_0",@"F (U R U' R') (U R U' R') F'",@2],
      @[@"11_1",@"f (R U R' U') (R U R' U') f'",@0],
      @[@"12_0",@"(R U R' U) (R U') (B U' B' R)",@0],
-     @[@"12_1",@"(R U R' U) R d' R U' R' F'",@0],
+     @[@"12_1",@"(R' U' R U' R' U) y' (R' U R) B",@0],
+     @[@"12_2",@"(R U R' U) R d' R U' R' F'",@0],
      @[@"13_0",@"(r U2) (R' U' R U) (R' U' R U') r'",@-1],
      @[@"13_1",@"(r U R' U) (R U' R' U) R U2' r'",@0],
      @[@"14_0",@"(l' U' L U') (L' U L U') (L' U2 l)",@0],
      @[@"15_0",@"(r U') (r2 U r2 U) (r2 U' r)",@0],
      @[@"15_1",@"(R' F R' F') R2 U2 y (R' F R F')",@0],
      @[@"16_0",@"(R' F) (R2 B' R2' F') (R2 B R')",@0],
+     @[@"16_1",@"r' U r2 U' r2 U' r2 U r'",@2],
      @[@"17_0",@"F (R U R' U') (R U R' U') F'",@0],
      @[@"18_0",@"F' (L' U' L U) (L' U' L U) F",@0],
      @[@"19_0",@"(r U R' U) R U2 r'",@0],
@@ -282,15 +296,18 @@
      @[@"25_1",@"r' U2 (R U R' U) r",@0],
      @[@"26_0",@"r U2 R' U' R U' r'",@0],
      @[@"27_0",@"F U R U' R2 F' R (U R U' R')",@0],
+     @[@"27_1",@"(r U' r) (U' r U r') y' (R' U R)",@0],
      @[@"28_0",@"(R' F) (R U R' F' R) (F U' F')",@0],
      @[@"28_1",@"(R' F) (R U R' F' R) y' (R U' R')",@0],
      @[@"29_0",@"(r U r') (R U R' U') (r U' r')",@0],
      @[@"30_0",@"(l' U' l) (L' U' L U) (l' U l)",@0],
+     @[@"30_1",@"(r' U' r) (R' U' R U) (r' U r)",@0],
      @[@"31_0",@"[(R U R' U) R U2 R'] [F (R U R' U') F']",@0],
-     @[@"32_0",@"(R' U' R U' R' U2 R) (F R U R' U' F')",@-1],
+     @[@"32_0",@"(R' U' R U' R' U2 R) F (R U R' U') F'",@-1],
      @[@"32_1",@"(R' F R F') (R' F R F') (R U R' U') (R U R')",@0],
      @[@"33_0",@"(F R' F) (R2 U' R' U') (R U R') F2",@2],
-     @[@"33_1",@"(R2 U R' B' R) U' (R2 U R B R')",@0],
+     @[@"33_1",@"F U (R U2 R' U') (R U2 R' U') F'",@2],
+     @[@"33_2",@"(R2 U R' B' R) U' (R2 U R B R')",@0],
      @[@"34_0",@"r2 D' (r U r') D r2 U' (r' U' r)",@-1],
      @[@"34_1",@"(R U R' U') R U' R' F' U' F (R U R')",@0],
      @[@"35_0",@"(R U B') U' R' U (R B R')",@0],
@@ -406,8 +423,41 @@ NSArray *ollVids =@[@[@"55_0",@"UberCuber",@39, @6, @"Qr1ETRAQPKI"],
                     @[@"35_0",@"Feliks Zemdegs",@226, @9.8, @"IasVqtCHoj0"],
                     @[@"39_0",@"Feliks Zemdegs",@236, @6.5, @"IasVqtCHoj0"],
                     @[@"38_1",@"Feliks Zemdegs",@244, @6.2, @"IasVqtCHoj0"],
-//                    @[@"_0",@"Feliks Zemdegs",@, @, @"IasVqtCHoj0"],
-//                    @[@"_0",@"Feliks Zemdegs",@, @, @"IasVqtCHoj0"]
+                    @[@"11_1",@"Feliks Zemdegs",@263, @8.5, @"IasVqtCHoj0"],
+                    @[@"10_0",@"Feliks Zemdegs",@272, @1.9, @"IasVqtCHoj0"],
+                    @[@"12_1",@"Feliks Zemdegs",@285, @9.7, @"IasVqtCHoj0"],
+                    @[@"9_0",@"Feliks Zemdegs",@296, @11.7, @"IasVqtCHoj0"],
+                    @[@"23_0",@"Feliks Zemdegs",@308, @10.9, @"IasVqtCHoj0"],
+                    @[@"24_0",@"Feliks Zemdegs",@320, @10.9, @"IasVqtCHoj0"],
+                    @[@"40_0",@"Feliks Zemdegs",@332, @10.2, @"IasVqtCHoj0"],
+                    @[@"37_0",@"Feliks Zemdegs",@343, @7.2, @"IasVqtCHoj0"],
+                    @[@"27_1",@"Feliks Zemdegs",@363, @9.3, @"IasVqtCHoj0"],
+                    @[@"28_0",@"Feliks Zemdegs",@373, @8.5, @"IasVqtCHoj0"],
+                    @[@"29_0",@"Feliks Zemdegs",@382, @8.5, @"IasVqtCHoj0"],
+                    @[@"30_1",@"Feliks Zemdegs",@392, @8.7, @"IasVqtCHoj0"],
+                    @[@"34_1",@"Feliks Zemdegs",@402, @10.3, @"IasVqtCHoj0"],
+                    @[@"33_1",@"Feliks Zemdegs",@413, @11.1, @"IasVqtCHoj0"],
+                    @[@"31_0",@"Feliks Zemdegs",@425, @11.7, @"IasVqtCHoj0"],
+                    @[@"32_0",@"Feliks Zemdegs",@437, @13.7, @"IasVqtCHoj0"],
+                    @[@"17_0",@"Feliks Zemdegs",@463, @9.9, @"IasVqtCHoj0"],
+                    @[@"18_0",@"Feliks Zemdegs",@473, @8.6, @"IasVqtCHoj0"],
+                    @[@"15_0",@"Feliks Zemdegs",@483, @10.4, @"IasVqtCHoj0"],
+                    @[@"16_1",@"Feliks Zemdegs",@494, @9.9, @"IasVqtCHoj0"],
+                    @[@"13_1",@"Feliks Zemdegs",@517, @7.8, @"IasVqtCHoj0"],
+                    @[@"19_0",@"Feliks Zemdegs",@537, @9.0, @"IasVqtCHoj0"],
+                    @[@"20_1",@"Feliks Zemdegs",@547, @10.6, @"IasVqtCHoj0"],
+                    @[@"22_0",@"Feliks Zemdegs",@559, @10.7, @"IasVqtCHoj0"],
+                    @[@"21_0",@"Feliks Zemdegs",@571, @12.6, @"IasVqtCHoj0"],
+                    @[@"43_0",@"Feliks Zemdegs",@585, @9.9, @"IasVqtCHoj0"],
+                    @[@"44_0",@"Feliks Zemdegs",@596, @9.0, @"IasVqtCHoj0"],
+                    @[@"1_0",@"Feliks Zemdegs",@618, @11.8, @"IasVqtCHoj0"],
+                    @[@"2_0",@"Feliks Zemdegs",@631, @13.6, @"IasVqtCHoj0"],
+                    @[@"4_0",@"Feliks Zemdegs",@646, @12.0, @"IasVqtCHoj0"],
+                    @[@"3_0",@"Feliks Zemdegs",@659, @12.2, @"IasVqtCHoj0"],
+                    @[@"6_0",@"Feliks Zemdegs",@673, @13.0, @"IasVqtCHoj0"],
+                    @[@"7_0",@"Feliks Zemdegs",@687, @10.6, @"IasVqtCHoj0"],
+                    @[@"5_0",@"Feliks Zemdegs",@699, @11.1, @"IasVqtCHoj0"],
+                    @[@"8_2",@"Feliks Zemdegs",@712, @11.5, @"IasVqtCHoj0"]
                     ];
     
     
@@ -498,10 +548,13 @@ Video *vid;
     self.interstitial = [[GADInterstitial alloc]
                          initWithAdUnitID:@"ca-app-pub-9875593345175318/9560130874"];
     GADRequest *request = [GADRequest request];
+
+#ifdef testing
 #warning remove
     request.testDevices = @[ kGADSimulatorID,            // All simulators
                              @"515ea915fcd3eccfbad7e21041c3bffb",
                              @"f930daf8742bd0b6d7ee35788403872e" ]; // Sample device ID
+#endif
 
     self.interstitial.delegate = self;
     [self.interstitial loadRequest:request];
@@ -663,7 +716,7 @@ Video *vid;
 #pragma mark - button actions
 - (IBAction)crossAction:(UIButton *)sender
 {
-    if ([selectedCross integerValue] == sender.tag)
+    if (!selectedCorners && [selectedCross integerValue] == sender.tag)
     {
         //reset cross
         [self resetButtons];
@@ -689,6 +742,7 @@ Video *vid;
             [button imageNormal];
         }
 
+        selectedCorners = nil;
         [self chooseCross];
         [self cleanTypes];
     }
