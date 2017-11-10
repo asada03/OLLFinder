@@ -50,6 +50,9 @@
     [self.algTable reloadData];
 }
 
+//-(BOOL)prefersStatusBarHidden{
+//    return YES;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -209,17 +212,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CaseCell"];
-    Algorithm *ollAlg = currentAlgorithms[indexPath.row];
-    
-    cell.caseImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.uid]];
-    cell.caseImage.contentMode = UIViewContentModeScaleAspectFit;
-    cell.algorithmLabel.text = ollAlg.algorithm;
-    cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
-    cell.rotations = [ollAlg.rotations integerValue];
-    cell.isMain = [ollAlg isEqual:self.ollCase.main];
-    if (cell.isMain) selectedAlg = indexPath.row;
-    cell.hasVideo = (ollAlg.video != nil);
-    cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
+    if (indexPath.row < [currentAlgorithms count])
+    {
+        Algorithm *ollAlg = currentAlgorithms[indexPath.row];
+        
+        cell.caseImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"oll%@.png", self.ollCase.uid]];
+        cell.caseImage.contentMode = UIViewContentModeScaleAspectFit;
+        cell.algorithmLabel.text = ollAlg.algorithm;
+        cell.algorithmLabel.adjustsFontSizeToFitWidth = YES;
+        cell.rotations = [ollAlg.rotations integerValue];
+        cell.isMain = [ollAlg isEqual:self.ollCase.main];
+        if (cell.isMain) selectedAlg = indexPath.row;
+        cell.hasVideo = (ollAlg.video != nil);
+        cell.authorLabel.text = ollAlg.video ? ollAlg.video.author : @"";
+    }
     return cell;
 }
 

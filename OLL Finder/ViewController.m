@@ -69,6 +69,9 @@
     }
 }
 
+//-(BOOL)prefersStatusBarHidden{
+//    return YES;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -154,18 +157,19 @@
     
     if (YES)
 #else
-    if (![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version] &
+        if ((![[UICKeyChainStore stringForKey:@"version"] isEqualToString:version]) &
         [[NSFileManager defaultManager] fileExistsAtPath:[url path]])
 #endif
     {
         NSError *error;
         [[NSFileManager defaultManager] removeItemAtPath:[url path] error:&error];
-        NSLog(@"Deleting");
+        NSLog(@"MOC Deleting");
     }
 
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]])
     {
+        NSLog(@"MOC Populating");
         [document saveToURL:url
            forSaveOperation:UIDocumentSaveForCreating
           completionHandler:^(BOOL success) {
@@ -177,6 +181,7 @@
     }
     else if (document.documentState == UIDocumentStateClosed)
     {
+        NSLog(@"MOC Opening");
         [document openWithCompletionHandler:^(BOOL success) {
             if (success) {
                 self.managedObjectContext = document.managedObjectContext;
@@ -186,6 +191,7 @@
     }
     else
     {
+        NSLog(@"MOC Other");
         self.managedObjectContext = document.managedObjectContext;
         [self start];
     }

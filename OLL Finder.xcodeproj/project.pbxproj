@@ -27,8 +27,11 @@
 		411E49741ED7EF3000466992 /* ollcrossed.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496B1ED7EF3000466992 /* ollcrossed.png */; };
 		411E49751ED7EF3000466992 /* ollcenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 411E496C1ED7EF3000466992 /* ollcenter.png */; };
 		4121C34E1EE23DAA005B5AAB /* CaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121C34D1EE23DAA005B5AAB /* CaseViewController.m */; };
+		413EEB261FB631860032A71E /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413EEB241FB631850032A71E /* Protobuf.framework */; };
+		413EEB271FB631860032A71E /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413EEB251FB631860032A71E /* FirebaseMessaging.framework */; };
 		413EF6841FB0C1F300939536 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413EF6831FB0C1F200939536 /* GoogleMobileAds.framework */; };
 		413EF6861FB4D56300939536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413EF6851FB4D56300939536 /* Main.storyboard */; };
+		413EF6881FB51BBE00939536 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413EF6871FB51BBE00939536 /* LaunchScreen.xib */; };
 		41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160A1F49C639005F71F4 /* FirebaseCore.framework */; };
 		41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */; };
 		41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */; };
@@ -109,7 +112,6 @@
 		773CF28F1AA2DACB009290DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF28E1AA2DACB009290DF /* AppDelegate.m */; };
 		773CF2921AA2DACB009290DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF2911AA2DACB009290DF /* ViewController.m */; };
 		773CF2971AA2DACB009290DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773CF2961AA2DACB009290DF /* Images.xcassets */; };
-		773CF29A1AA2DACB009290DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773CF2981AA2DACB009290DF /* LaunchScreen.xib */; };
 		773CF2A61AA2DACB009290DF /* OLL_FinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CF2A51AA2DACB009290DF /* OLL_FinderTests.m */; };
 		773CF3341AA2EE3D009290DF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 773CF3321AA2EE3D009290DF /* Model.xcdatamodeld */; };
 		775BE74D1AA2F6D2000E3A9D /* CaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 775BE74C1AA2F6D2000E3A9D /* CaseTableViewCell.m */; };
@@ -148,8 +150,11 @@
 		411E496C1ED7EF3000466992 /* ollcenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ollcenter.png; sourceTree = "<group>"; };
 		4121C34C1EE23DAA005B5AAB /* CaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseViewController.h; sourceTree = "<group>"; };
 		4121C34D1EE23DAA005B5AAB /* CaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseViewController.m; sourceTree = "<group>"; };
+		413EEB241FB631850032A71E /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Protobuf.framework; sourceTree = "<group>"; };
+		413EEB251FB631860032A71E /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = "<group>"; };
 		413EF6831FB0C1F200939536 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		413EF6851FB4D56300939536 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
+		413EF6871FB51BBE00939536 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		41C816081F49C19E005F71F4 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		41C8160A1F49C639005F71F4 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -245,7 +250,6 @@
 		773CF2901AA2DACB009290DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		773CF2911AA2DACB009290DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		773CF2961AA2DACB009290DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		773CF2991AA2DACB009290DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		773CF29F1AA2DACB009290DF /* OLL FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OLL FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		773CF2A41AA2DACB009290DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		773CF2A51AA2DACB009290DF /* OLL_FinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLL_FinderTests.m; sourceTree = "<group>"; };
@@ -261,9 +265,11 @@
 			files = (
 				413EF6841FB0C1F300939536 /* GoogleMobileAds.framework in Frameworks */,
 				41C8160E1F49C639005F71F4 /* FirebaseCore.framework in Frameworks */,
+				413EEB261FB631860032A71E /* Protobuf.framework in Frameworks */,
 				41C816101F49C639005F71F4 /* GoogleToolboxForMac.framework in Frameworks */,
 				41C8160F1F49C639005F71F4 /* FirebaseInstanceID.framework in Frameworks */,
 				41C816121F49C649005F71F4 /* FirebaseDatabase.framework in Frameworks */,
+				413EEB271FB631860032A71E /* FirebaseMessaging.framework in Frameworks */,
 				41C816161F49C7AB005F71F4 /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +293,8 @@
 				41C8160A1F49C639005F71F4 /* FirebaseCore.framework */,
 				41C8160B1F49C639005F71F4 /* FirebaseInstanceID.framework */,
 				41C8160C1F49C639005F71F4 /* GoogleToolboxForMac.framework */,
+				413EEB251FB631860032A71E /* FirebaseMessaging.framework */,
+				413EEB241FB631850032A71E /* Protobuf.framework */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -341,10 +349,10 @@
 				41C816331F4B99CE005F71F4 /* VideoViewController.m */,
 				41EE46DC1AA372CA002AC26D /* iphone.storyboard */,
 				413EF6851FB4D56300939536 /* Main.storyboard */,
+				413EF6871FB51BBE00939536 /* LaunchScreen.xib */,
 				41C816081F49C19E005F71F4 /* Firebase.h */,
 				41C816131F49C689005F71F4 /* GoogleService-Info.plist */,
 				773CF2961AA2DACB009290DF /* Images.xcassets */,
-				773CF2981AA2DACB009290DF /* LaunchScreen.xib */,
 				773CF2891AA2DACB009290DF /* Supporting Files */,
 			);
 			path = "OLL Finder";
@@ -587,6 +595,7 @@
 				411E49721ED7EF3000466992 /* olltwo.png in Resources */,
 				41E676261ED7EB230011938B /* oll52.png in Resources */,
 				411E49741ED7EF3000466992 /* ollcrossed.png in Resources */,
+				413EF6881FB51BBE00939536 /* LaunchScreen.xib in Resources */,
 				41E675F41ED7E5640011938B /* oll15.png in Resources */,
 				41E676251ED7EB230011938B /* oll53.png in Resources */,
 				41EE46DD1AA372CA002AC26D /* iphone.storyboard in Resources */,
@@ -609,7 +618,6 @@
 				4119F1AB1F3F5C40002F6BF4 /* ollT.png in Resources */,
 				41E676231ED7EB230011938B /* oll55.png in Resources */,
 				41E675FB1ED7E5640011938B /* oll8.png in Resources */,
-				773CF29A1AA2DACB009290DF /* LaunchScreen.xib in Resources */,
 				41C8163A1F4B9A50005F71F4 /* Assets.bundle in Resources */,
 				41E6763A1ED7EB230011938B /* oll32.png in Resources */,
 				4119F1A71F3F5C40002F6BF4 /* ollP.png in Resources */,
@@ -693,17 +701,6 @@
 			targetProxy = 773CF2A01AA2DACB009290DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		773CF2981AA2DACB009290DF /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				773CF2991AA2DACB009290DF /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		773CF2A71AA2DACB009290DF /* Debug */ = {
