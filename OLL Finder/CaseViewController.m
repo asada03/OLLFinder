@@ -145,7 +145,6 @@
     switch (state) {
         case kYTPlayerStatePlaying:
             [self setPlayerSize:1];
-            [playerView seekToSeconds:[video.start floatValue] allowSeekAhead:YES];
             break;
         case kYTPlayerStatePaused:
             break;
